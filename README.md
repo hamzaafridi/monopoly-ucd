@@ -1,6 +1,10 @@
 # Monopoly  
 required to design and implement a variant of the Monopoly game  
 
+# Team Details  
+team id: 18  
+team members: Hamza Afridi, Anh Le Ho Bao 
+
 ### Language  
 Java
   
