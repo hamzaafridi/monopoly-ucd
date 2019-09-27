@@ -1,5 +1,5 @@
 # Monopoly  
-required to design and implement a variant of the Monopoly game  
+required to design and implement a variant of the Monopoly game. Will be implementing standard US version of the game. More details available in this [link](https://monopoly.fandom.com/wiki/Monopoly)
 
 ## Team Details  
 - team id: _18_  
