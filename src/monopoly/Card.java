@@ -2,6 +2,7 @@ package monopoly;
 
 import org.junit.*;
 
+
 public class Card {
 	private CardType type;
 	private CardAction action;
@@ -14,16 +15,27 @@ public class Card {
 	private int payForEachPlayer; // the money have to pay for one Player, must be multiple.
 	private boolean isPaid; // if player has to pay for the owner or can buy from the bank if it's unowned
 	private boolean outJailFree; // the card that helps you out of the Jail without paying money
+	private boolean invalidKey;
 
 	public Card(CardType type, int key) {
 		this.travel = 999; //return a large number when the chances or communities do not require to move
 		this.travelTo = 999;
 		if (!type.equals(CardType.CHANCE) && !type.equals(CardType.COMMUNITY))
-			System.out.println("Invalid ");
-		if (type.equals(CardType.CHANCE))
+			throw new IllegalArgumentException("Invalid CardType");
+		if (type.equals(CardType.CHANCE)) {
+			if (key < 0 || key > 15) {
+				invalidKey = true;
+				//throw new IllegalArgumentException("Invalid Key of Chance");
+			}
 			chance(key);
-		else
+		}
+		else{
+			if (key < 0 || key > 16) {
+				invalidKey = true;
+				//throw new IllegalArgumentException("Invalid Key of Community");
+			}
 			community(key);
+		}
 	}
 	
 	//This code for 16 Chance
@@ -354,6 +366,9 @@ public class Card {
 		value = 100;
 	}
 
+	public boolean invalidKey() {
+		return invalidKey;
+	}
 
 	public int value() {
 		return value;
@@ -413,11 +428,4 @@ public class Card {
 		GET_OUT_JAIL
 	}
 	
-	//Unit Test
-	public void testChance() 
-	{
-	    int testKey = 1;
-	    Card myCard = new Card(CardType.CHANCE,testKey);
-	    Assert.assertEquals(24, myCard.value() );
-	}
 }
