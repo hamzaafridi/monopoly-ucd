@@ -1,17 +1,21 @@
-package monopoly;
-import static org.junit.Assert.*;
+package tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import board.Card;
+import utils.CardAction;
+import utils.CardType;	
 
-import monopoly.Card;
-import monopoly.Card.CardAction;
-import monopoly.Card.CardType;
-
+/**
+ * This is a JUnit test for Card class
+ * @author BaoAnh
+ * @version 0.1
+ * @since 06-11-2019
+ */
 public class CardTest {
 
 	@Test
-	//Type is not CHANCE and COMMUNITY
+	//TODO Type is not CHANCE and COMMUNITY
 	public void testCardWithWrongType() {
 		//input of method Card must be a CardType ENUM
    	}

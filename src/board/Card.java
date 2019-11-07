@@ -1,8 +1,14 @@
-package monopoly;
+package board;
 
-import org.junit.*;
+import utils.CardAction;
+import utils.CardType;	
 
-
+/**
+ * Class describing all chance and community cards
+ * @author BaoAnh
+ * @version 0.1
+ * @since 06-11-2019
+ */
 public class Card {
 	private CardType type;
 	private CardAction action;
@@ -13,24 +19,36 @@ public class Card {
 	private int payFor1house; // the money have to pay for repairing a house
 	private int payFor1hotel; // the money have to pay for repairing a hotel
 	private int payForEachPlayer; // the money have to pay for one Player, must be multiple.
-	private boolean isPaid; // if player has to pay for the owner or can buy from the bank if it's unowned
-	private boolean outJailFree; // the card that helps you out of the Jail without paying money
-	private boolean invalidKey;
-
+	private boolean isPaid; // true if player has to pay for the owner or can buy from the bank if it's unowned
+	private boolean outJailFree; // true if you get the card that helps you out of the Jail without paying money
+	private boolean invalidKey; // true if the input key out of the limitation
+	final int keyChanceMin = 0; // limit of Chance card
+	final int keyChanceMax = 15;// limit of Chance card
+	final int keyCommunityMin = 0;// limit of Community card
+	final int keyCommunityMax = 16;// limit of Community card
+	final int unknownValue = 999; //return a large number when the chance or community cards do not require to move
+	
+	
+	
+/**
+ * 
+ * @param type
+ * @param key is a random number of the card, it should be 0-15 for chance and 0-16 for community
+ */
 	public Card(CardType type, int key) {
-		this.travel = 999; //return a large number when the chances or communities do not require to move
-		this.travelTo = 999;
+		this.travel = unknownValue; 
+		this.travelTo = unknownValue;
 		if (!type.equals(CardType.CHANCE) && !type.equals(CardType.COMMUNITY))
 			throw new IllegalArgumentException("Invalid CardType");
 		if (type.equals(CardType.CHANCE)) {
-			if (key < 0 || key > 15) {
+			if (key < keyChanceMin || key > keyChanceMax) {
 				invalidKey = true;
 				//throw new IllegalArgumentException("Invalid Key of Chance");
 			}
 			chance(key);
 		}
 		else{
-			if (key < 0 || key > 16) {
+			if (key < keyChanceMin || key > keyChanceMax) {
 				invalidKey = true;
 				//throw new IllegalArgumentException("Invalid Key of Community");
 			}
@@ -38,8 +56,10 @@ public class Card {
 		}
 	}
 	
-	//This code for 16 Chance
-	
+	/**
+	 * This code for 16 Chances
+	 * @param key is a random number from 0-15
+	 */
 	private void chance(int key) {
 		type = CardType.CHANCE;
 		switch (key) {
@@ -96,115 +116,147 @@ public class Card {
 		}
 	}
 
-	//Advance to "Go". (Collect $200)
+	/**
+	 * Advance to "Go". (Collect $200)
+	 */
 	private void moveToGo() { 
 		action = CardAction.MOVE_TO;
 		travelTo = 0;
 		isPaid = false;
 	}
 	
-	//Advance to Illinois Ave. If you pass Go, collect $200.
+	/**
+	 * Advance to Illinois Ave. If you pass Go, collect $200.
+	 */
 	private void moveToIllinois() {
 		action = CardAction.MOVE_TO;
 		travelTo = 24;
 		isPaid = false;
 	}
 	
-	//Advance to St.Charles Place. If you pass Go, collect $200.
+	/**
+	 * Advance to St.Charles Place. If you pass Go, collect $200.
+	 */
 	private void moveToCharles() {
 		action = CardAction.MOVE_TO;
 		travelTo = 11;
 		isPaid = false;
 	}
 	
-	//Advance token to nearest Utility. 
-	//If unowned, you may buy it from the Bank. 
-	//If owned, throw dice and pay owner a total 10 times the amount thrown.
+	/**
+	 * Advance token to nearest Utility. 
+	 * If unowned, you may buy it from the Bank. 
+	 * If owned, throw dice and pay owner a total 10 times the amount thrown.
+	 */
 	private void nearestUtility() {
 		action = CardAction.MOVE_NEAREST;
 		nearestRail = false;
 		isPaid = true;
 	}
 	
-	//Advance token to the nearest Railroad and pay owner twice the rental to 
-	//which he/she {he} is otherwise entitled. 
-	//If Railroad is unowned, you may buy it from the Bank
+	/**
+	 * Advance token to the nearest Railroad and pay owner twice the rental to 
+	 * which he/she {he} is otherwise entitled. 
+	 * If Railroad is unowned, you may buy it from the Bank
+	 */
 	private void nearestRailroad() {
 		action = CardAction.MOVE_NEAREST;
 		nearestRail = true;
 		isPaid = true;
 	}
 	
-	//Bank pays you dividend of $50.
+	/**
+	 * Bank pays you dividend of $50.
+	 */
 	private void dividend() {
 		action = CardAction.BANK_MONEY;
 		value = 50;
 	}
 	
-	//Get out of Jail Free. This card may be kept until needed, or traded/sold.
-	//if sold, take $50.
+	/**
+	 * Get out of Jail Free. This card may be kept until needed, or traded/sold.
+	 * if sold, take $50.
+	 */
 	private void jailFree() {
 		action = CardAction.GET_OUT_JAIL;
 		outJailFree = true;
 	}
 	
-	//Go Back Three Spaces.
+	/**
+	 * Go Back Three Spaces.
+	 */
 	private void goBack() {
 		action = CardAction.MOVE;
 		travel = -3;
 		isPaid = false;
 	}
 	
-	//Go to Jail. Go directly to Jail. 
-	//Do not pass GO, do not collect $200.
+	/**
+	 * Go to Jail. Go directly to Jail. 
+	 * Do not pass GO, do not collect $200.
+	 */
 	private void goToJail() {
 		action = CardAction.MOVE_TO;
 		travelTo = 40;
 	}
 	
-	//Make general repairs on all your property: 
-	//For each house pay $25, For each hotel pay $100.
+	/**
+	 * Make general repairs on all your property: 
+	 * For each house pay $25, For each hotel pay $100.
+	 */
 	private void repair() {
 		action = CardAction.REPAIR;
 		payFor1house = -25;
 		payFor1hotel = -100;
 	}
 	
-	//Pay poor tax of $15
+	/**
+	 * Pay poor tax of $15
+	 */
 	private void poorTax() {
 		action = CardAction.BANK_MONEY;
 		value = -15;
 	}
 	
-	//Take a trip to Reading Railroad.
-	//If you pass Go, collect $200.
+	/**
+	 * Take a trip to Reading Railroad.
+	 * If you pass Go, collect $200.
+	 */
 	private void readingRailroad() {
 		action = CardAction.MOVE_TO;
 		travelTo = 5;
 		isPaid = false;
 	}
 	
-	//Take a walk on the Boardwalk. Advance token to Boardwalk.
+	/**
+	 * Take a walk on the Boardwalk. Advance token to Boardwalk.
+	 */
 	private void goToBoardwalk() {
 		action = CardAction.MOVE_TO;
 		travelTo = 39;
 		isPaid = false;
 	}
 	
-	//You have been elected Chairman of the Board. 
-	//Pay each player $50.
+	/**
+	 * You have been elected Chairman of the Board. 
+	 * Pay each player $50.
+	 */
 	private void chairman() {
 		action = CardAction.PLAYER_MONEY;
 		payForEachPlayer = -50;
 	}
 	
-	//Your building and loan matures. Receive $150.
+	/**
+	 * Your building and loan matures. Receive $150.
+	 */
 	private void loanMature() {
 		action = CardAction.BANK_MONEY;
 		value = 150;
 	}
 	
-	//You have won a crossword competition. Collect $100.
+	/**
+	 * You have won a crossword competition. Collect $100.
+	 */
 	private void wonCompetition() {
 		action = CardAction.BANK_MONEY;
 		value = 100;
@@ -212,8 +264,11 @@ public class Card {
 	
 	
 	
-	//This code for 17 Community Chest
-
+	
+	/**
+	 * This code for 17 Communities
+	 * @param key is a random number, from 0-16
+	 */
 	private void community(int key) {
 		type = CardType.COMMUNITY;
 		switch (key) {
@@ -273,159 +328,224 @@ public class Card {
 		}
 	}
 	
-	//moveToGo()
+	//moveToGo() [Already done above]
 	
-	//Bank error in your favor. Collect $200.
+	/**
+	 * Bank error in your favor. Collect $200.
+	 */
 	private void bankError() {
 		action = CardAction.BANK_MONEY;
 		value = 200;
 	}
 	
-	//Doctor's fees. Pay $50
+	
+	/**
+	 * Doctor's fees. Pay $50
+	 */
 	private void doctorFee() {
 		action = CardAction.BANK_MONEY;
 		value = -50;
 	}
 	
-	//From sale of stock you get $50.
+	/**
+	 * From sale of stock you get $50.
+	 */
 	private void saleStock() {
 		action = CardAction.BANK_MONEY;
 		value = 45;
 	}
 	
-	//jailFree()
+	//jailFree() [Already done above]
 	
-	//goToJail()
+	//goToJail() [Already done above]
 	
-	//Grand Opera Night. 
-	//Collect $50 from every player for opening night seats.
+	/**
+	 * Grand Opera Night. 
+	 * Collect $50 from every player for opening night seats.
+	 */
 	private void opera() {
 		action = CardAction.PLAYER_MONEY;
 		payForEachPlayer = 50;
 	}
 
-	//Holiday Xmas Fund matures. Receive $100.
+	/**
+	 * Holiday Xmas Fund matures. Receive $100.
+	 */
 	private void holiday() {
 		action = CardAction.BANK_MONEY;
 		value = 100;
 	}
 	
-	//Income tax refund. Collect $20.
+	/**
+	 * Income tax refund. Collect $20.
+	 */
 	private void refundTax() {
 		action = CardAction.BANK_MONEY;
 		value = 20;
 	}
 	
-	//It is your birthday. Collect $10 from every player. 
+	/**
+	 * It is your birthday. Collect $10 from every player. 
+	 */
 	private void birthday() {
 		action = CardAction.PLAYER_MONEY;
 		payForEachPlayer = 10;
 	}
 	
-	//Life insurance matures – Collect $100
+	/**
+	 * Life insurance matures – Collect $100
+	 */
 	private void lifeInsurance() {
 		action = CardAction.BANK_MONEY;
 		value = 100;
 	}
 	
-	//Hospital Fees. Pay $50. 
+	/**
+	 * Hospital Fees. Pay $50. 
+	 */
 	private void hospitalFee() {
 		action = CardAction.BANK_MONEY;
 		value = -50;
 	}
 	
-	//School fees. Pay $50.
+	/**
+	 * School fees. Pay $50.
+	 */
 	private void schoolFee() {
 		action = CardAction.BANK_MONEY;
 		value = -50;
 	}
 	
-	//Receive $25 consultancy fee.
+	/**
+	 * Receive $25 consultancy fee.
+	 */
 	private void consultancyFee() {
 		action = CardAction.BANK_MONEY;
 		value = 25;
 	}
 	
-	//You are assessed for street repairs: 
-	//Pay $40 per house and $115 per hotel you own.
+	/**
+	 * You are assessed for street repairs: 
+	 * Pay $40 per house and $115 per hotel you own.
+	 */
 	private void streetRepair() {
 		action = CardAction.REPAIR;
 		payFor1house = -40;
 		payFor1hotel = -115;
 	}
 	
-	//You have won second prize in a beauty contest. Collect $10.
+	/**
+	 * You have won second prize in a beauty contest. Collect $10.
+	 */
 	private void beautyContest() {
 		action = CardAction.BANK_MONEY;
 		value = 10;
 	}
 	
-	//You inherit $100.
+	/**
+	 * You inherit $100.
+	 */
 	private void inherit() {
 		action = CardAction.BANK_MONEY;
 		value = 100;
 	}
 
+	/**
+	 * 
+	 * @return true if it is invalid key and false if it is valid key
+	 */
 	public boolean invalidKey() {
 		return invalidKey;
 	}
 
+	/**
+	 * 
+	 * @return value of the card (money)
+	 */
 	public int value() {
 		return value;
 	}
 
+	/**
+	 * 
+	 * @return number of step that you can move, it can be negative number
+	 */
 	public int travel() {
 		return travel;
 	}
 
+	/**
+	 * 
+	 * @return a number which represent for tile on the board, it should be from 0-40
+	 */
 	public int travelTo() {
 		return travelTo;
 	}
 
+	/**
+	 * 
+	 * @return true if the card asks to move to the nearest rail, false  for the opposite case.
+	 */
 	public boolean travelRail() {
 		return nearestRail;
 	}
 
+	/**
+	 * 
+	 * @return the money that you have to pay for a house
+	 */
 	public int house() {
 		return payFor1house;
 	}
 
+	/**
+	 * 
+	 * @return the money that you have to pay for a hotel
+	 */
 	public int hotel() {
 		return payFor1hotel;
 	}
 
+	/**
+	 * 
+	 * @return the money that you have to pay for a every single player
+	 */
 	public int eachPlayer() {
 		return payForEachPlayer;
 	}
 
+	/**
+	 * 
+	 * @return true if player has to pay for the owner or can buy from the bank if it's unowned, 
+	 * false  for the opposite case.
+	 */
 	public boolean isPaid() {
 		return isPaid;
 	}
 
+	/**
+	 * 
+	 * @return true if you got Jail Free card,
+	 * false  for the opposite case.
+	 */
 	public boolean outJailFree() {
 		return outJailFree;
 	}
 
+	/**
+	 * 
+	 * @return type of the card, it should be CHANCE or COMMUNITY
+	 */
 	public CardType type() {
 		return type;
 	}
 
+	/**
+	 * 
+	 * @return action of the card, 
+	 * it should be BANK_MONEY,PLAYER_MONEY, MOVE, MOVE_TO, MOVE_NEAREST, REPAIR, GET_OUT_JAIL
+	 */
 	public CardAction action() {
 		return action;
-	}
-
-	public enum CardType {
-		CHANCE,COMMUNITY
-	}
-
-	public enum CardAction {
-		BANK_MONEY,
-		PLAYER_MONEY, 
-		MOVE, 
-		MOVE_TO, 
-		MOVE_NEAREST, 
-		REPAIR, 
-		GET_OUT_JAIL
-	}
-	
+	}	
 }
