@@ -11,7 +11,7 @@ import utils.Token;
  * @version 0.1
  * @since 06-11-2019
  */
-public abstract class TokenEnumTest {
+public class TokenEnumTest {
 
 	@Test
 	/**
