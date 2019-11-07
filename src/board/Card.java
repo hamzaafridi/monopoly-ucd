@@ -1,8 +1,5 @@
 package board;
 
-import utils.CardAction;
-import utils.CardType;	
-
 /**
  * Class describing all chance and community cards
  * @author BaoAnh

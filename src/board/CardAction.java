@@ -1,4 +1,4 @@
-package utils;
+package board;
 
 /**
  * Enum Class for describing Card Action in the game. 

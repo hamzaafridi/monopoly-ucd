@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import utils.Token;
+import player.Token;
 /**
  * This is a JUnit test for Token Enum class
  * @author Hamza Afridi

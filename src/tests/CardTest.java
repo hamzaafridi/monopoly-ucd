@@ -3,8 +3,8 @@ package tests;
 import org.junit.Assert;
 import org.junit.Test;
 import board.Card;
-import utils.CardAction;
-import utils.CardType;	
+import board.CardAction;
+import board.CardType;	
 
 /**
  * This is a JUnit test for Card class

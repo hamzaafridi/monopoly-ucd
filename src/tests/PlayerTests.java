@@ -1,6 +1,6 @@
 package tests;
 import player.Player;
-import utils.Token;
+import player.Token;
 
 import static org.junit.jupiter.api.Assertions.*;
 

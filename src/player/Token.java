@@ -1,4 +1,4 @@
-package utils;
+package player;
 /**
  * Enum Class for Token describing options. There are six options for players of this game.
  * @author Hamza Afridi

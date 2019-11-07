@@ -2,7 +2,8 @@ package tests;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import utils.CardAction;
+
+import board.CardAction;
 
 /**
  * This is a JUnit test for CardAction Enum class

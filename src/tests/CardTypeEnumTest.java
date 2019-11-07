@@ -2,7 +2,8 @@ package tests;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import utils.CardType;
+
+import board.CardType;
 
 /**
  * This is a JUnit test for CardType Enum class

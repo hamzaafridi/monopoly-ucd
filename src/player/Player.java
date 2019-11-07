@@ -1,6 +1,5 @@
 package player;
 
-import utils.Token;
 /**
  * Class describing a player
  * @author Hamza Afridi
