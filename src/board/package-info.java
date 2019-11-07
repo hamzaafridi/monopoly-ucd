@@ -1,1 +1,1 @@
-package monopoly;
+package board;
