@@ -27,8 +27,10 @@ public class Player {
 	{
 		this.token = playerToken;
 		this.setInJail(false);
-		this.setBoardPosition(1);
-		this.setAmount(1500);
+		this.boardPosition = 1;
+		this.amount = 0;
+		this.addAmount(1500);
+		this.name = name;
 	}
 	
 	/**
@@ -36,22 +38,21 @@ public class Player {
 	 * @return boardPosition as int where 1 is the starting position and it starts over after 40. 
 	 */
 	public int getBoardPosition() {
-		return boardPosition;
+		return this.boardPosition;
 	}
 	
 	/**
-	 * to set the current position of player on board. 1 being starting position.
-	 * @param boardPosition as input.
-	 * @return boolean true if the input is correct and false if input is incorrect 
+	 * to move the player by some positions.
+	 * @param numberOfPosition is the number of positions to move
+	 * @return new position 
 	 */
-	public boolean setBoardPosition(int boardPosition) {
-		if (boardPosition > 40 || boardPosition < 1){
-			return false;
+	public int moveBoardPosition(int numberOfPosition) {
+		this.boardPosition = this.boardPosition + numberOfPosition;
+		if (this.boardPosition > 40)
+		{
+			this.boardPosition = this.boardPosition - 40;
 		}
-		else {
-			this.boardPosition = boardPosition;
-			return true;
-		}
+		return this.boardPosition;
 	}
 	
 	/**
@@ -59,15 +60,17 @@ public class Player {
 	 * @return boolean true if player is in jail.
 	 */
 	public boolean getInJail() {
-		return inJail;
+		return this.inJail;
 	}
 	
 	/**
 	 * to set if the player is in jail.
-	 * @param boolean true if player is in jail, false if player is out of jail.
+	 * @param inJail boolean true if player is in jail, false if player is out of jail.
+	 * @return boolean new set value of inJail
 	 */
-	public void setInJail(boolean inJail) {
+	public boolean setInJail(boolean inJail) {
 		this.inJail = inJail;
+		return this.inJail;
 	}
 	
 	/**
@@ -75,15 +78,27 @@ public class Player {
 	 * @return amount of money the player has currently
 	 */
 	public int getAmount() {
-		return amount;
+		return this.amount;
 	}
 	
 	/**
-	 * to set amount of money the player has
-	 * @param amount amount of money the player has currently
+	 * to add amount to the amount the player has
+	 * @param amount to be added to the player
+	 * @return new amount 
 	 */
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public int addAmount(int amount) {
+		this.amount = this.amount + amount;
+		return this.amount;
+	}
+	
+	/**
+	 * to deduct amount to the amount the player has
+	 * @param amount to be deducted from the player
+	 * @return new amount 
+	 */
+	public int deductAmount(int amount) {
+		this.amount = this.amount - amount;
+		return this.amount;
 	}
 	
 	/**
@@ -91,7 +106,7 @@ public class Player {
 	 * @return amount of money player has.
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	/**
@@ -99,7 +114,7 @@ public class Player {
 	 * @return token assigned to the user.
 	 */
 	public Token getToken() {
-		return token;
+		return this.token;
 	}
 	
 	
