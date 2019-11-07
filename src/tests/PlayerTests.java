@@ -15,11 +15,13 @@ import org.junit.jupiter.api.Test;
  */
 class PlayerTests {
 	private Player player1;
+	private Player player2;
 	
 	@BeforeEach
 	//initialize of player for each test
 	public void init() {
 		this.player1 = new Player(Token.BLACK, "Hamza");
+		this.player2 = new Player(Token.BLUE, "Brian", 100);
 	}
 	
 	@Test
@@ -77,7 +79,13 @@ class PlayerTests {
 	void testSetInJail()
 	{
 		assertEquals(player1.setInJail(true),true);
-		//assertEquals(player1.moveBoardPosition(2),3);
+	}
+	
+	@Test
+	//test to check other constructor with startingAmount parameter is working.
+	void testConstructorWithStartingAmount()
+	{
+		assertEquals(player2.getAmount(),100);
 	}
 
 }

@@ -34,6 +34,22 @@ public class Player {
 	}
 	
 	/**
+	 * Constructor for class Player which also includes startingAmount parameter
+	 * @param playerToken describes a token assigned to the user from the Token Enum class.
+	 * @param name is a string with full name of a user. 
+	 * @param startingAmount
+	 */
+	public Player(Token playerToken, String name, int startingAmount)
+	{
+		this.token = playerToken;
+		this.setInJail(false);
+		this.boardPosition = 1;
+		this.amount = 0;
+		this.addAmount(startingAmount);
+		this.name = name;
+	}
+	
+	/**
 	 * to get the current position of player on board. 1 being starting position
 	 * @return boardPosition as int where 1 is the starting position and it starts over after 40. 
 	 */
