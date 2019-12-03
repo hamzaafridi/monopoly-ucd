@@ -11,7 +11,6 @@ import player.Player;
 public class Taxes implements Property{
 	private TaxType type; // type of tax
 	private int fixedTax;  //fixed tax 
-	private double percent; //percent in case income tax
 	private String name;
 	private int pos; //Position
 	private boolean payAsPercentage; // true if player want to pay as percentage
@@ -25,9 +24,9 @@ public class Taxes implements Property{
 	public Taxes(int pos, TaxType type, boolean payAsPercentage) {
 		this.pos = pos;
 		this.payAsPercentage = payAsPercentage;
+		this.type = type;
 		if (type.equals(TaxType.INCOME)) {
 			this.fixedTax = 200;
-			this.percent = 10/100;
 			this.name = "Income Tax";
 		} else {
 			this.fixedTax = 75;
@@ -122,10 +121,10 @@ public class Taxes implements Property{
 	 */
 	public int tax(int value) {
 		//if no variable tax option, return fixed tax value
-		if (this.payAsPercentage== false)
+		if (this.payAsPercentage == false || type.equals(TaxType.LUXURY))
 			return fixedTax;
 		else {
-		return (int) (value * this.percent);
+		return (int) (value * 0.1);
 		}
 	}
 	

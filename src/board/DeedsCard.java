@@ -39,8 +39,7 @@ public class DeedsCard implements Property{
 		 * @param houses
 		 * @param mortgageValue
 		 */
-		public DeedsCard(String name, int pos, int rent, int oneHouse, int twoHouse, int threeHouse, int fourHouse,
-		                int hotel, int value, int houses, int mortgage) {
+		public DeedsCard(String name, int pos, int rent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel, int value, int houses, int mortgage) {
 			this.name = name;
 			this.pos = pos;
 			this.rent = rent;

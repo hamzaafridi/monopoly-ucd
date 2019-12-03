@@ -87,7 +87,8 @@ public class Railroad implements Property{
 	 * @return money have to pay if another people get into this tile
 	 */
 	public int rent() {
-
+		if (!isOwned)
+			return 0;
 		switch (numOwned) {
 			case 1:
 				return 25;

@@ -93,7 +93,8 @@ public class Utility implements Property{
 	 * @return money have to pay if another people get into this tile
 	 */
 	public int rent() {
-
+		if (!isOwned)
+			return 0;
 		return this.rollValue * 4;
 		
 		//TODO if player own both
