@@ -17,15 +17,15 @@ class DeedsCardTest {
 	public void testCase1() {
 		int pos = 2;
 		int rent = 2;
-		int oneH = 10;
-		int twoH = 30;
-		int threeH = 90;
-		int fourH = 160;
+		int oneHouse = 10;
+		int twoHouse = 30;
+		int threeHouse = 90;
+		int fourHouse = 160;
 		int hotel = 250;
 		int cost = 60;
 		int houses = 50;
 		int mortgage = 30;
-	    DeedsCard myDeedsCard = new DeedsCard("Mediterranean Avenue", pos, rent, oneH, twoH, threeH, fourH, hotel, cost, houses, mortgage);
+	    DeedsCard myDeedsCard = new DeedsCard("Mediterranean Avenue", pos, rent, oneHouse, twoHouse, threeHouse, fourHouse, hotel, cost, houses, mortgage);
 	    Assert.assertEquals(2,myDeedsCard.position());
 	    Assert.assertEquals("Mediterranean Avenue",myDeedsCard.name());
 	    Assert.assertEquals(true,myDeedsCard.isOwnable());
@@ -44,16 +44,16 @@ class DeedsCardTest {
 		public void testCase2() {
 			int pos = 2;
 			int rent = 2;
-			int oneH = 10;
-			int twoH = 30;
-			int threeH = 90;
-			int fourH = 160;
+			int oneHouse = 10;
+			int twoHouse = 30;
+			int threeHouse = 90;
+			int fourHouse = 160;
 			int hotel = 250;
 			int cost = 60;
 			int houses = 50;
 			int mortgage = 30;
 			Player player1 = new Player(Token.BLACK, "Hamza");
-		    DeedsCard myDeedsCard = new DeedsCard("Mediterranean Avenue", pos, rent, oneH, twoH, threeH, fourH, hotel, cost, houses, mortgage);
+		    DeedsCard myDeedsCard = new DeedsCard("Mediterranean Avenue", pos, rent, oneHouse, twoHouse, threeHouse, fourHouse, hotel, cost, houses, mortgage);
 		    myDeedsCard.isPurchased(player1);
 		    Assert.assertEquals(2,myDeedsCard.position());
 		    Assert.assertEquals("Mediterranean Avenue",myDeedsCard.name());
