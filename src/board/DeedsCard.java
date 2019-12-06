@@ -224,4 +224,16 @@ public class DeedsCard implements Property{
 			else
 				colorGroups = 3;
 		}
+		
+		/**
+		 * Use for build a house or build a hotel
+		 * Every time use this function, buildings = buildings+1
+		 */
+		public void build() {
+			if (buildings >= 0 && buildings < 5)
+			buildings ++;
+			else
+				throw new IllegalArgumentException("Invalid building!");	
+		}
+		
 }
