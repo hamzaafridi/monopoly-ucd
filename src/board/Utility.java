@@ -18,7 +18,8 @@ public class Utility implements Property{
 	private boolean isOwned;  // true if it is owned by somebody
 	private int numOwned; // number of utilities owned by a player
 	private int mortgage; // money if the owner have to mortgage it.
-
+	private Utility otherCompany; // 2 kind of company: Electric and Water, use for compute rent cost if player own 2 types of company
+	
 	/**
 	 * This is constructor
 	 * @param name
@@ -84,8 +85,9 @@ public class Utility implements Property{
 		owner = player;
 		numOwned = 1;
 		
+		
+		updateOwner();
 		//TODO update in Player class;
-		//TODO check if the player also buy another company updateOwner();
 	}
 
 	/**
@@ -93,11 +95,20 @@ public class Utility implements Property{
 	 * @return money have to pay if another people get into this tile
 	 */
 	public int rent() {
+		
+		updateOwner();
+		
 		if (!isOwned)
 			return 0;
-		return this.rollValue * 4;
 		
-		//TODO if player own both
+		switch (numOwned) {
+		case 1:
+			return this.rollValue * 4;
+		case 2:
+			return this.rollValue * 10;
+		default:
+			return 0;
+		}
 	}
 
 	/**
@@ -117,8 +128,24 @@ public class Utility implements Property{
 	}
 
 	//more method
-	//TODO check the numbers of railroad that owner has
+	/**
+	 * check the numbers of railroad that owner has
+	 */
 	private void updateOwner() {
-		//TODO if owned another numOwned ++
+		numOwned = 1;
+			try {
+				if (otherCompany.isOwned() && otherCompany.owner().equals(owner))
+					 numOwned++;
+			   	} catch (Exception e) {
+				  
+			   }
+	}
+	
+	/**
+	 * Use to check others company have same owner
+	 * @param otherCompany
+	 */
+	public void otherCompany(Utility otherCompany) {
+		this.otherCompany = otherCompany;
 	}
 }

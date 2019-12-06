@@ -68,9 +68,8 @@ class DeedsCardTest {
 		    Assert.assertEquals(false,myDeedsCard.isOwnSameColor());
 		}
 	
+	//More test about own same color group is implemented in BoardTest.java
 	//TODO case build house
 	//TODO case build hotel
-	//TODO case have same color group
-	
 
 }
