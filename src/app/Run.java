@@ -2,6 +2,7 @@ package app;
 
 import board.Board;
 import board.Dice;
+import board.Property;
 import board.Rules;
 import player.Player;
 import player.Token;
@@ -23,7 +24,7 @@ public class Run {
 		Scanner in = new Scanner(System.in); // input object
 		Screen disp = new Screen(); // welcome message
 		Utils input = new Utils(in);
-		Board Board = new Board(); 
+		Board board = new Board(); 
 		
 		int numUsers = 0; // initializing number of user variable
 
@@ -65,7 +66,7 @@ public class Run {
 		int iter;
 		int roll;
 		int rollTotal;
-		
+		Property currentTile;
 		while (gameplay) {
 			for (int i = 0; i < numUsers; i++) {
 				disp.playerStatus(player.get(i));
@@ -89,6 +90,26 @@ public class Run {
 				else
 				{
 					player.get(i).moveBoardPosition(rollTotal);
+					//tile action
+					currentTile = board.getBoardTitle(player.get(i).getBoardPosition());
+					if(currentTile.isOwned())
+					{
+						currentTile.owner().addAmount(currentTile.rent());
+						player.get(i).deductAmount(currentTile.rent());
+					}
+					
+					else
+					{
+						disp.purchaseQuestion(currentTile.cost(),currentTile.name());
+						if(input.ynInput())
+						{
+							player.get(i).deductAmount(currentTile.cost());
+							currentTile.isPurchased(player.get(i));
+						}
+						else {
+							// TODO auction
+						}
+					}
 				}
 				
 				disp.playerStatus(player.get(i));

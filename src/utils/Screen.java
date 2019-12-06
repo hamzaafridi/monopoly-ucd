@@ -52,7 +52,7 @@ public class Screen {
 	 */
 	public void playerStatus(Player player)
 	{
-		System.out.println("***************************");
+		System.out.println("\n***************************");
 		System.out.printf("%s! it's your turn\n",player.getName());
 		System.out.printf("token: %s\n", player.getToken());
 		System.out.printf("current position: %d\n",player.getBoardPosition());
@@ -76,6 +76,10 @@ public class Screen {
 		System.out.println("Press anykey to continue....");
 	}
 	
+	/**
+	 * Select token message
+	 * @param tokens list to display available tokens
+	 */
 	public void selectToken(List<Token> tokens)
 	{
 		System.out.println("Available tokens:");
@@ -87,9 +91,21 @@ public class Screen {
 		}
 		System.out.printf("\nEnter token number:");
 	}
-
+	
+	/**
+	 * three doubles penalty message
+	 */
 	public void diceRuleGotoJail() {
 		System.out.println("you got doubles three times! You are now in jail!");
+	}
+
+	/**
+	 * Want to buy property message
+	 * @param cost: cost of the property
+	 * @param name: name of the property
+	 */
+	public void purchaseQuestion(int cost, String name) {
+		System.out.printf("Do you want to buy \"%s\" for $%d? (y/n) :",name,cost);
 	}
 
 }
