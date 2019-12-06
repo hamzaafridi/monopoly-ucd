@@ -1,5 +1,6 @@
 package app;
 
+import board.Board;
 import board.Dice;
 import board.Rules;
 import player.Player;
@@ -22,6 +23,8 @@ public class Run {
 		Scanner in = new Scanner(System.in); // input object
 		Screen disp = new Screen(); // welcome message
 		Utils input = new Utils(in);
+		Board Board = new Board(); 
+		
 		int numUsers = 0; // initializing number of user variable
 
 		do {
@@ -59,13 +62,34 @@ public class Run {
 		input.pressAnyKey();
 
 		boolean gameplay = true;
-
+		int iter;
+		int roll;
+		int rollTotal;
+		
 		while (gameplay) {
 			for (int i = 0; i < numUsers; i++) {
 				disp.playerStatus(player.get(i));
-				disp.rollDice();
-				input.pressAnyKey();
-				System.out.println(dice.roll());
+				iter = 0;
+				rollTotal = 0;
+				do {
+					disp.rollDice();
+					input.pressAnyKey();
+					roll = dice.roll();
+					System.out.printf("dice value: %d\n", roll);
+					rollTotal += roll;
+					iter++;
+				}while(Rules.diceRule(roll, iter));
+				
+				if(Rules.diceRuleJail(roll, iter)) {
+					disp.diceRuleGotoJail();
+					player.get(i).setInJail(true);
+				}
+				else
+				{
+					player.get(i).moveBoardPosition(rollTotal);
+				}
+				disp.playerStatus(player.get(i));
+				
 			}
 
 		}
