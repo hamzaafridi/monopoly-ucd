@@ -66,7 +66,7 @@ public class Player {
 		if (this.boardPosition > 40)
 		{
 			this.boardPosition = this.boardPosition - 40;
-			this.amount +=200;
+			this.addAmount(200);//add amount on complete rotation.
 		}
 		return this.boardPosition;
 	}
