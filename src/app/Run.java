@@ -71,6 +71,7 @@ public class Run {
 				disp.playerStatus(player.get(i));
 				iter = 0;
 				rollTotal = 0;
+				//roll dice
 				do {
 					disp.rollDice();
 					input.pressAnyKey();
@@ -80,6 +81,7 @@ public class Run {
 					iter++;
 				}while(Rules.diceRule(roll, iter));
 				
+				//check for three doubles
 				if(Rules.diceRuleJail(roll, iter)) {
 					disp.diceRuleGotoJail();
 					player.get(i).setInJail(true);
@@ -88,6 +90,7 @@ public class Run {
 				{
 					player.get(i).moveBoardPosition(rollTotal);
 				}
+				
 				disp.playerStatus(player.get(i));
 				
 			}

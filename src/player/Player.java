@@ -85,6 +85,8 @@ public class Player {
 	 * @return boolean new set value of inJail
 	 */
 	public boolean setInJail(boolean inJail) {
+		if (inJail)
+			this.boardPosition = 11;
 		this.inJail = inJail;
 		return this.inJail;
 	}
