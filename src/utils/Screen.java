@@ -2,6 +2,7 @@ package utils;
 
 import java.util.List;
 
+import player.Player;
 import player.Token;
 /**
  * Class to display messages on the screen
@@ -46,12 +47,25 @@ public class Screen {
 	}
 	
 	/**
-	 * roll the dice
-	 * @param n, to format the player number
+	 * information regarding the player
+	 * @param player, player information
 	 */
-	public void rollTurn(int n)
+	public void playerStatus(Player player)
 	{
-		System.out.printf("\nplayer %d press any key to roll the dice..\n",n+1);
+		System.out.println("***************************");
+		System.out.printf("%s! it's your turn\n",player.getName());
+		System.out.printf("token: %s\n", player.getToken());
+		System.out.printf("current position: %d\n",player.getBoardPosition());
+		System.out.printf("amount: %d\n",player.getAmount());
+		System.out.printf("inJail: %b\n",player.getInJail());
+	}
+	
+	/**
+	 * roll dice
+	 */
+	public void rollDice()
+	{
+		System.out.println("Press any key to roll dice...");
 	}
 	
 	/**
