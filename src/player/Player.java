@@ -66,6 +66,7 @@ public class Player {
 		if (this.boardPosition > 40)
 		{
 			this.boardPosition = this.boardPosition - 40;
+			this.amount +=200;
 		}
 		return this.boardPosition;
 	}
