@@ -88,4 +88,8 @@ public class Screen {
 		System.out.printf("\nEnter token number:");
 	}
 
+	public void diceRuleGotoJail() {
+		System.out.println("you got doubles three times! You are now in jail!");
+	}
+
 }
