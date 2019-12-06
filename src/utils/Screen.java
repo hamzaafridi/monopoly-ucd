@@ -42,7 +42,16 @@ public class Screen {
 	 */
 	public void nameMessage(int n)
 	{
-		System.out.printf("\nEnter player %d name:",n);
+		System.out.printf("\nEnter player %d name:",n+1);
+	}
+	
+	/**
+	 * roll the dice
+	 * @param n, to format the player number
+	 */
+	public void rollTurn(int n)
+	{
+		System.out.printf("\nplayer %d press any key to roll the dice..\n",n+1);
 	}
 	
 	/**
