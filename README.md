@@ -9,25 +9,33 @@ required to design and implement a variant of the Monopoly game. Will be impleme
 Java
 
 ### Project structure  
-_To be filled later on_
+Project has the following structure:
+- app (package): contains main class in run.java file
+- board (package): contains all board related classes
+- players (package): contains all player related classes
+- test (package): contains test for each of the classes seperately
+- utils (package): contains common functionality classes such as input control
 
 ### How to run the project
-_To be filled later on_
+To run this run the jar file in APP folder (not the app package in src folder).
+- You will be prompted to input number of users
+- Then you will be prompted to players names and select token
+- from there on the game will start
   
 ### Objective  
 Objective of the game is to own as much land (property) and to be the richest person.  
 
 ### Components
 Following componnents are to be implemented:  
-- [ ] gameboard: includes 40 spaces
-- [ ] 6 tokens: differ by color; red, green, blue, yellow, while, black
-- [ ] 16 chance cards: description of the cards can be found in the [link](https://monopoly.fandom.com/wiki/Chance#Cards)
-- [ ] 16 community chest cards: description of the cards can be found in the [link(https://monopoly.fandom.com/wiki/Community_Chest#Cards)
-- [ ] 32 houses
-- [ ] 12 hotels
-- [ ] 28 title deed cards: description of these deeds cards can be found in the [link](https://www.ranker.com/list/all-monopoly-properties/steve-wright)
-- [ ] money
-- [ ] two dices: 6 sides with numbers 1,2,3,4,5,6
+- [X] gameboard: includes 40 spaces
+- [X] 6 tokens: differ by color; red, green, blue, yellow, while, black
+- [X] 16 chance cards: description of the cards can be found in the [link](https://monopoly.fandom.com/wiki/Chance#Cards)
+- [X] 16 community chest cards: description of the cards can be found in the [link(https://monopoly.fandom.com/wiki/Community_Chest#Cards)
+- [X] 32 houses
+- [X] 12 hotels
+- [X] 28 title deed cards: description of these deeds cards can be found in the [link](https://www.ranker.com/list/all-monopoly-properties/steve-wright)
+- [X] money
+- [X] two dices: 6 sides with numbers 1,2,3,4,5,6
 
 ### Game Flow  
 
@@ -38,26 +46,26 @@ Following componnents are to be implemented:
 4. set the token starting points at go (start of the board)
 
 ### Contributions  
-_To be filled later on_
+All classes were equally distributed. Each class has it's author mentioned on the file. Hamza worked on Player class, game flow, Utils and some parts of flow. Brian did major work in creating the board, cards and all the functionality. Test were simultaneously created for all cases individually.
 
 ### Evaluation Checklist  
-- [ ] seperate classes for different game components
-- [ ] No big classes, long methods
-- [ ] well structured
-- [ ] accurate implementation of interfaces
-- [ ] are design patterns used
-- [ ] all functionality is correctly implemented and tested and retested
-- [ ] approprite work distribtuion
-- [ ] frequent commits by both team members
-- [ ] several and meaningful tests cases implemeted to test main functionality
+- [X] seperate classes for different game components
+- [X] No big classes, long methods
+- [X] well structured
+- [X] accurate implementation of interfaces
+- [X] are design patterns used
+- [X] all functionality is correctly implemented and tested and retested
+- [X] approprite work distribtuion
+- [X] frequent commits by both team members
+- [X] several and meaningful tests cases implemeted to test main functionality
 
 ### Final Checklist  
-- [ ] TeamID in README
-- [ ] Structure of repo in README
-- [ ] How to run checklist in README
-- [ ] Team organization in README
-- [ ] Complete Folder of ECLIPSE PROJECT including external libraries
-- [ ] Unit Tests 50% coverage atleast
-- [ ] 1 use case diagram: UML diagram folder
+- [X] TeamID in README
+- [X] Structure of repo in README
+- [X] How to run checklist in README
+- [X] Team organization in README
+- [X] Complete Folder of ECLIPSE PROJECT including external libraries
+- [X] Unit Tests 50% coverage atleast
+- [X] 1 use case diagram: UML diagram folder
 - [ ]  1 sequence diagram: UML diagram folder
 - [ ] 1 class diagram: UML diaram folder
