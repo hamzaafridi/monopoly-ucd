@@ -108,6 +108,7 @@ public class Run {
 						}
 						else {
 							// TODO auction
+							System.out.println("There will be auction");
 						}
 					}
 				}
