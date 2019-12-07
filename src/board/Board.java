@@ -152,21 +152,106 @@ public class Board {
 	 * For computing rent cost when player own same color group
 	 */
 	private void makeSameColorGroups() {
-		//TODO add all avenue have same color in a group
+		//mediterranean,baltic
+		DeedsCard mediterranean = (DeedsCard) getBoardTitle(2);
+		DeedsCard baltic = (DeedsCard) getBoardTitle(4);
+		
+		mediterranean.otherDeedsCard(baltic,null);
+		baltic.otherDeedsCard(mediterranean,null);
+		
+		//oriental,vermont,connecticut
+		DeedsCard oriental = (DeedsCard) getBoardTitle(7);
+		DeedsCard vermont = (DeedsCard) getBoardTitle(9);
+		DeedsCard connecticut = (DeedsCard) getBoardTitle(10);
+		
+		oriental.otherDeedsCard(connecticut,vermont);
+		vermont.otherDeedsCard(oriental,connecticut);
+		connecticut.otherDeedsCard(oriental,vermont);		
+		
+		//charles,states,virginia
+		DeedsCard charles = (DeedsCard) getBoardTitle(12);
+		DeedsCard states = (DeedsCard) getBoardTitle(14);
+		DeedsCard virginia = (DeedsCard) getBoardTitle(15);
+		
+		charles.otherDeedsCard(states,virginia);
+		states.otherDeedsCard(charles,virginia);
+		virginia.otherDeedsCard(charles,states);
+		
+		//james,tennessee,newYork
+		DeedsCard james = (DeedsCard) getBoardTitle(17);
+		DeedsCard tennessee = (DeedsCard) getBoardTitle(19);
+		DeedsCard newYork = (DeedsCard) getBoardTitle(20);
+		
+		james.otherDeedsCard(tennessee,newYork);
+		tennessee.otherDeedsCard(james,newYork);
+		newYork.otherDeedsCard(james,tennessee);
+		
+		//kentucky,indiana,illinois
+		DeedsCard kentucky = (DeedsCard) getBoardTitle(22);
+		DeedsCard indiana = (DeedsCard) getBoardTitle(24);
+		DeedsCard illinois = (DeedsCard) getBoardTitle(25);
+		
+		kentucky.otherDeedsCard(illinois,indiana);
+		indiana.otherDeedsCard(kentucky,illinois);
+		illinois.otherDeedsCard(kentucky,indiana);
+		
+		//atlantic,ventor,marvin
+		DeedsCard atlantic = (DeedsCard) getBoardTitle(27);
+		DeedsCard ventor = (DeedsCard) getBoardTitle(28);
+		DeedsCard marvin = (DeedsCard) getBoardTitle(30);
+		
+		atlantic.otherDeedsCard(marvin,ventor);
+		ventor.otherDeedsCard(atlantic,marvin);
+		marvin.otherDeedsCard(atlantic,ventor);
+		
+		//pacific,carolina,pennsylvania
+		DeedsCard pacific = (DeedsCard) getBoardTitle(32);
+		DeedsCard carolina = (DeedsCard) getBoardTitle(33);
+		DeedsCard pennsylvania = (DeedsCard) getBoardTitle(35);
+		
+		pacific.otherDeedsCard(pennsylvania,carolina);
+		carolina.otherDeedsCard(pacific,pennsylvania);
+		pennsylvania.otherDeedsCard(pacific,carolina);
+		
+		//park,boardwalk
+		DeedsCard park = (DeedsCard) getBoardTitle(38);
+		DeedsCard boardwalk = (DeedsCard) getBoardTitle(40);
+		
+
+		park.otherDeedsCard(boardwalk,null);
+		try {
+			boardwalk.otherDeedsCard(park,null);
+		   	} catch (Exception e) {
+			  
+		   }
+		
+		
 	}
 
 	/**
 	 * For computing rent cost when player own more than 1 railroad
 	 */
 	private void makeRailroadGroup() {
-		//TODO add all 4 railroad in a group
+		Railroad readingRailroad = (Railroad) getBoardTitle(6);
+		Railroad pennsylvaniaRailroad = (Railroad) getBoardTitle(16);
+		Railroad BOrailroad = (Railroad) getBoardTitle(26);
+		Railroad shortLineRailroad = (Railroad) getBoardTitle(36);
+
+		readingRailroad.otherRailroad(pennsylvaniaRailroad, BOrailroad, shortLineRailroad);
+		pennsylvaniaRailroad.otherRailroad(readingRailroad, BOrailroad, shortLineRailroad);
+		BOrailroad.otherRailroad(readingRailroad, pennsylvaniaRailroad, shortLineRailroad);
+		shortLineRailroad.otherRailroad(readingRailroad, pennsylvaniaRailroad, BOrailroad);
 	}
 
 	/**
 	 * For computing rent cost when player own both of company
 	 */
 	private void makeUtilityCompanyGroup() {
-		//TODO add 2 company in a group
+		Utility electric = (Utility) getBoardTitle(13);
+		Utility water = (Utility) getBoardTitle(29);
+
+		electric.otherCompany(water);
+		water.otherCompany(electric);
 	}
 
 	/**

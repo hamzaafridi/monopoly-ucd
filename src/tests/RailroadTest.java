@@ -50,6 +50,6 @@ class RailroadTest {
 	    Assert.assertEquals(player1,myRailroad.owner());
 		}
 	
-	//TODO updateOwner (own 2 or more)
+	//More test about own more than 2 railroad is implement in BoardTest.java
 
 }
