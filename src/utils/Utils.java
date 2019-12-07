@@ -52,7 +52,6 @@ public class Utils {
 	 */
 	public boolean ynInput() {
 		String decision = input.nextLine();
-		System.out.println(decision);
 		while(!(decision.equals("y") || decision.equals("n") || decision.equals("Y\n") || decision.equals("N\n")))  
 		{
 			System.out.println("Invalid input please try again (y/n):\t");
