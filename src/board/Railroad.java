@@ -16,6 +16,7 @@ public class Railroad implements Property{
 	private Player owner;
 	private boolean isOwned;  //is property owned?
 	private int mortgage;
+	private Railroad[] otherRailroad = new Railroad[3];
 
 	/**
 	 * This is constructor
@@ -77,9 +78,8 @@ public class Railroad implements Property{
 	public void isPurchased(Player player) {
 		isOwned = true;
 		owner = player;
-
+		updateOwner();
 		//TODO update in Player class;
-		//TODO check if the player also buy another railroad updateOwner();
 	}
 
 	/**
@@ -87,8 +87,12 @@ public class Railroad implements Property{
 	 * @return money have to pay if another people get into this tile
 	 */
 	public int rent() {
+		
+		updateOwner();
+		
 		if (!isOwned)
 			return 0;
+		
 		switch (numOwned) {
 			case 1:
 				return 25;
@@ -121,9 +125,32 @@ public class Railroad implements Property{
 	
 	
 	//more method
-	//TODO check the numbers of railroad that owner has
-	private void updateOwner() {
-		//TODO if owned another numOwned ++
+	
+	/**
+	 * compute number of railroad that player own
+	 */
+	public void updateOwner() {
+		numOwned = 1;
+		for (Railroad r : otherRailroad){
+			try {
+				if (r.isOwned() && r.owner().equals(owner))
+					 numOwned++;
+			   	} catch (Exception e) {
+				  
+			   }
+		}
+	}
+	
+	/**
+	 * Use to check others railroad have same owner
+	 * @param a
+	 * @param b
+	 * @param c
+	 */
+	public void otherRailroad(Railroad a, Railroad b, Railroad c){
+		otherRailroad[0] = a;
+		otherRailroad[1] = b;
+		otherRailroad[2] = c;
 	}
 
 }

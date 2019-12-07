@@ -34,7 +34,7 @@ class UtilityTest {
 	}
 	
 	@Test
-	// Case 2: Electric Company and no one own this
+	// Case 2: Electric Company and player 1 own this
 	public void testCase2() {
 		int pos = 13;
 		int min = 2*4;
@@ -53,5 +53,5 @@ class UtilityTest {
 	    Assert.assertEquals(player1,myUtility.owner());
 	}
 	
-	//TODO if player own both company
+	//More test about player own both companies is implemented in BoardTest.java
 }
