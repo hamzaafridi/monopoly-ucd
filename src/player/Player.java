@@ -66,6 +66,7 @@ public class Player {
 		if (this.boardPosition > 40)
 		{
 			this.boardPosition = this.boardPosition - 40;
+			this.addAmount(200);//add amount on complete rotation.
 		}
 		return this.boardPosition;
 	}
@@ -84,6 +85,8 @@ public class Player {
 	 * @return boolean new set value of inJail
 	 */
 	public boolean setInJail(boolean inJail) {
+		if (inJail)
+			this.boardPosition = 11;
 		this.inJail = inJail;
 		return this.inJail;
 	}

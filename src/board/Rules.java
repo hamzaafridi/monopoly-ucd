@@ -45,4 +45,32 @@ public class Rules {
 			return false;
 		
 	}
+	
+	/**
+	 * dice roll check to see if 12 is repeated 3 times
+	 * @param number, is the input from the dice
+	 * @iter is the iteration number
+	 * @return if iteration =3 which means it's a third roll and it is 12 aswell then return true else false
+	 */
+	static public boolean diceRule(int number, int iter)
+	{
+		if(number == 12 & iter < 3)
+			return true;
+		else
+			return false;
+	}
+	
+	/**
+	 * dice roll check to see if 12 is repeated 3 times
+	 * @param number, is the input from the dice
+	 * @iter is the iteration number
+	 * @return if iteration =3 which means it's a third roll and it is 12 aswell then return true else false
+	 */
+	static public boolean diceRuleJail(int number, int iter)
+	{
+		if(number == 12 & iter == 3)
+			return true;
+		else
+			return false;
+	}
 }

@@ -63,7 +63,7 @@ public class DeedsCard implements Property{
 		 * @return position
 		 */
 		public int position() {
-			return pos;
+			return this.pos;
 		}
 
 		/**
@@ -71,7 +71,7 @@ public class DeedsCard implements Property{
 		 * @return name of the property
 		 */
 		public String name() {
-			return name;
+			return this.name;
 		}
 
 		/**
@@ -87,7 +87,7 @@ public class DeedsCard implements Property{
 		 * @return  true if it is owned by somebody
 		 */
 		public boolean isOwned() {
-			return isOwned;
+			return this.isOwned;
 		}
 		
 		/**
@@ -95,7 +95,7 @@ public class DeedsCard implements Property{
 		 * @return the cost to purchase property
 		 */
 		public int cost() {
-			return value;
+			return this.value;
 		}
 		
 		/**
@@ -104,8 +104,8 @@ public class DeedsCard implements Property{
 		 * update player who buy this property
 		 */
 		public void isPurchased(Player player) {
-			isOwned = true;
-			owner = player;
+			this.isOwned = true;
+			this.owner = player;
 
 			updateOwner();
 		}
@@ -123,18 +123,18 @@ public class DeedsCard implements Property{
 			
 			switch (buildings) {
 				case 0:
-					if (isOwnSameColor) return 2 * rent;
-					return rent;
+					if (this.isOwnSameColor) return 2 * rent;
+					return this.rent;
 				case 1:
-					return oneHouse;
+					return this.oneHouse;
 				case 2:
-					return twoHouse;
+					return this.twoHouse;
 				case 3:
-					return threeHouse;
+					return this.threeHouse;
 				case 4:
-					return fourHouse;
+					return this.fourHouse;
 				case 5:
-					return hotel;
+					return this.hotel;
 				default:
 					return 0;
 			}
@@ -146,7 +146,7 @@ public class DeedsCard implements Property{
 		 * @return money if this deed is mortgage
 		 */
 		public int mortgage() {
-			return mortgage;
+			return this.mortgage;
 		}
 
 		/**
@@ -154,7 +154,7 @@ public class DeedsCard implements Property{
 		 * @return who own this property
 		 */
 		public Player owner() {
-			return owner;
+			return this.owner;
 		}
 		
 		//More method
@@ -164,7 +164,7 @@ public class DeedsCard implements Property{
 		 * @return number of buildings
 		 */
 		public int numHouses() {
-			return buildings;
+			return this.buildings;
 		}
 
 		/**
@@ -172,7 +172,7 @@ public class DeedsCard implements Property{
 		 * @return cost to build a house
 		 */
 		public int houseCost() {
-			return houses;
+			return this.houses;
 		}
 		
 		//TODO check if there is a player own group of color
@@ -183,7 +183,7 @@ public class DeedsCard implements Property{
 		 * @return true if there is a player own group of color
 		 */
 		public boolean isOwnSameColor() {
-			return isOwnSameColor;
+			return this.isOwnSameColor;
 		}
 		
 		/**
