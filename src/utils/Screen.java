@@ -98,6 +98,13 @@ public class Screen {
 	public void diceRuleGotoJail() {
 		System.out.println("you got doubles three times! You are now in jail!");
 	}
+	
+	/**
+	 * sent to jail message
+	 */
+	public void sentToJailMessage() {
+		System.out.println("you have been sent to jail!");
+	}
 
 	/**
 	 * Want to buy property message
@@ -106,6 +113,10 @@ public class Screen {
 	 */
 	public void purchaseQuestion(int cost, String name) {
 		System.out.printf("Do you want to buy \"%s\" for $%d? (y/n) :",name,cost);
+	}
+
+	public void drawChanceMessage() {
+		System.out.println("Press any key to draw card");
 	}
 
 }

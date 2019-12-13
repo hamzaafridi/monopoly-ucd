@@ -1,6 +1,9 @@
 package app;
 
 import board.Board;
+import board.Card;
+import board.CardType;
+import board.CardWrapper;
 import board.Dice;
 import board.Property;
 import board.Rules;
@@ -25,6 +28,8 @@ public class Run {
 		Screen disp = new Screen(); // welcome message
 		Utils input = new Utils(in);
 		Board board = new Board(); 
+		Card community = new Card(CardType.COMMUNITY);
+		Card chance = new Card(CardType.CHANCE);
 		
 		int numUsers = 0; // initializing number of user variable
 
@@ -92,12 +97,32 @@ public class Run {
 					player.get(i).moveBoardPosition(rollTotal);
 					//tile action
 					currentTile = board.getBoardTitle(player.get(i).getBoardPosition());
-					if(currentTile.isOwned())
-					{
-						currentTile.owner().addAmount(currentTile.rent());
-						player.get(i).deductAmount(currentTile.rent());
-					}
 					
+					if(!currentTile.isOwnable()) //it's not a property card
+					{
+						if(currentTile.name()=="Chance")
+						{
+							disp.drawChanceMessage();
+							chance.draw(); //draw random card
+							
+							player.set(i, chance.execute(player.get(i))); //update the value of player
+						}
+						else if (currentTile.name()=="Go To Jail")
+						{
+							player.get(i).setInJail(true);
+							disp.sentToJailMessage();
+						}
+						else if (currentTile.name()=="Community Chest")
+						{
+							//TODO draw community card
+						}
+						
+					}	
+					else if(currentTile.isOwned())
+					{
+						player.get(i).deductAmount(currentTile.rent());
+						currentTile.owner().addAmount(currentTile.rent());
+					}
 					else
 					{
 						disp.purchaseQuestion(currentTile.cost(),currentTile.name());
@@ -108,7 +133,7 @@ public class Run {
 						}
 						else {
 							// TODO auction
-							System.out.println("There will be auction");
+							System.out.println("There will be auction");	
 						}
 					}
 				}
