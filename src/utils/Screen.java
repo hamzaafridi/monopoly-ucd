@@ -114,9 +114,18 @@ public class Screen {
 	public void purchaseQuestion(int cost, String name) {
 		System.out.printf("Do you want to buy \"%s\" for $%d? (y/n) :",name,cost);
 	}
-
+	/**
+	 * message to draw chance card
+	 */
 	public void drawChanceMessage() {
-		System.out.println("Press any key to draw card");
+		System.out.println("Press any key to draw chance card");
+	}
+
+	/**
+	 * message to draw community card
+	 */
+	public void drawCommunityMessage() {
+		System.out.println("Press any key to draw community card");
 	}
 
 }

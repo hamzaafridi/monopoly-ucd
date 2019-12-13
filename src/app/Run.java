@@ -103,39 +103,48 @@ public class Run {
 						if(currentTile.name()=="Chance")
 						{
 							disp.drawChanceMessage();
+							input.pressAnyKey();
 							chance.draw(); //draw random card
-							
 							player.set(i, chance.execute(player.get(i))); //update the value of player
 						}
+						//if it's go to jail tile
 						else if (currentTile.name()=="Go To Jail")
 						{
 							player.get(i).setInJail(true);
 							disp.sentToJailMessage();
 						}
+						// if it's a community chest
 						else if (currentTile.name()=="Community Chest")
 						{
-							//TODO draw community card
+							disp.drawCommunityMessage();
+							input.pressAnyKey();
+							community.draw(); //draw random card
+							player.set(i, community.execute(player.get(i))); //update the value of player
 						}
 						
 					}	
-					else if(currentTile.isOwned())
-					{
-						player.get(i).deductAmount(currentTile.rent());
-						currentTile.owner().addAmount(currentTile.rent());
-					}
-					else
-					{
-						disp.purchaseQuestion(currentTile.cost(),currentTile.name());
-						if(input.ynInput())
+					
+					currentTile = board.getBoardTitle(player.get(i).getBoardPosition());//updated value
+					
+					if(currentTile.isOwnable())
+						if(currentTile.isOwned())
 						{
-							player.get(i).deductAmount(currentTile.cost());
-							currentTile.isPurchased(player.get(i));
+							player.get(i).deductAmount(currentTile.rent());
+							currentTile.owner().addAmount(currentTile.rent());
 						}
-						else {
-							// TODO auction
-							System.out.println("There will be auction");	
+						else
+						{
+							disp.purchaseQuestion(currentTile.cost(),currentTile.name());
+							if(input.ynInput())
+							{
+								player.get(i).deductAmount(currentTile.cost());
+								currentTile.isPurchased(player.get(i));
+							}
+							else {
+								// TODO auction
+								System.out.println("There will be auction");	
+							}
 						}
-					}
 				}
 				
 				disp.playerStatus(player.get(i));

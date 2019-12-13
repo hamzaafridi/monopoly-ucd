@@ -72,7 +72,7 @@ public class Utils {
 	 * @param max, maximum integer value
 	 * @return int
 	 */
-	public static int randInt(int max, int min){
+	public static int randInt(int min, int max){
 		Random random = new Random();
 		return random.ints(min,(max+1)).findFirst().getAsInt();
 	}
