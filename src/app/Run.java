@@ -79,14 +79,33 @@ public class Run {
 		int roll;
 		int rollTotal;
 		Property currentTile;
+		
+		//game loop
 		while (gameplay) {
+			//players loop
 			for (int i = 0; i < numUsers; i++) {
+				//ignore bankrupt players
 				if(player.get(i).getAmount()<1)
 					continue;
+				
 				disp.playerStatus(player.get(i));
 				iter = 0;
 				rollTotal = 0;
 				//roll dice
+				if(player.get(i).getInJail())
+				{
+					if (player.get(i).getOutOfJailCard())
+						{
+						player.get(i).setInJail(false);
+						System.out.println("get out of jail card used");
+						}
+			
+					else {
+						player.get(i).setInJail(false);
+						System.out.println("in jail, turn ignored");
+						continue;
+					}
+				}
 				do {
 					disp.rollDice();
 					input.pressAnyKey();
@@ -100,10 +119,6 @@ public class Run {
 				if(Rules.diceRuleJail(roll, iter)) {
 					disp.diceRuleGotoJail();
 					player.get(i).setInJail(true);
-				}
-				else if(player.get(i).getInJail())
-				{
-					
 				}
 				else
 				{

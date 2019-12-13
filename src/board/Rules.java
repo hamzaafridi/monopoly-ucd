@@ -94,7 +94,8 @@ public class Rules {
 	 * auction method for testing out everything
 	 * @param player list of all the players playing
 	 * @param currentTile is the tile that is being auctioned
-	 * @return
+	 * @param input is the Utility  input functionality
+	 * @return updated list of players
 	 */
 	public static List<Player> auction(List<Player> player, Property currentTile,Utils input) {
 		
