@@ -34,7 +34,6 @@ class CardWrapperTest {
 	    //Test Draw Card
 	    Assert.assertEquals(false, myChanceCard.invalidKey());
 	    Assert.assertEquals(CardType.CHANCE, myChanceCard.type());
-	    //TODO can test more but it seems like CardTest.java
 	}
 
 	@Test
@@ -54,7 +53,6 @@ class CardWrapperTest {
 	    //Test Draw Card
 	    Assert.assertEquals(false, myCommunityCard.invalidKey());
 	    Assert.assertEquals(CardType.COMMUNITY, myCommunityCard.type());
-	    //TODO can test more but it seems like CardTest.java
 	}
 
 }

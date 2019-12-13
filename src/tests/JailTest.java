@@ -22,7 +22,6 @@ class JailTest {
 	    Assert.assertEquals(0,myJail.rent());
 	    Assert.assertEquals(0,myJail.mortgage());
 	    Assert.assertEquals(null,myJail.owner());
-	    //TODO test update player class (flag GO TO JAIL)
 	}
 
 }
