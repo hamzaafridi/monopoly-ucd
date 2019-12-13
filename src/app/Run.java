@@ -39,6 +39,15 @@ public class Run {
 			System.gc();
 		} while (!Rules.checkNumberofUsers(numUsers)); // check for correct input
 
+		
+		//game end conditions
+		int bankruptLimit;
+		int bankruptNum=0;
+		if (numUsers==2)
+			bankruptLimit = 1;
+		else
+			bankruptLimit = 2;
+		
 		// creating players
 		List<Player> player = new ArrayList<Player>();
 		List<Token> tokens = new LinkedList(Arrays.asList(Token.values()));
@@ -74,6 +83,8 @@ public class Run {
 		Property currentTile;
 		while (gameplay) {
 			for (int i = 0; i < numUsers; i++) {
+				if(player.get(i).getAmount()<1)
+					continue;
 				disp.playerStatus(player.get(i));
 				iter = 0;
 				rollTotal = 0;
@@ -131,6 +142,7 @@ public class Run {
 						{
 							player.get(i).deductAmount(currentTile.rent());
 							currentTile.owner().addAmount(currentTile.rent());
+							disp.payRent(player.get(i),currentTile.owner(),currentTile.rent());
 						}
 						else
 						{
@@ -147,12 +159,19 @@ public class Run {
 						}
 				}
 				
+				if(player.get(i).getAmount()<1) {
+					disp.playerBanckrupt(player.get(i));
+					bankruptNum++;
+				}
 				disp.playerStatus(player.get(i));
 				
 			}
-
+		if(bankruptNum<=bankruptLimit)
+			gameplay =	false;
 		}
-
+		//TODO compute winner
+		Player winnerPlayer=player.get(1);
+		disp.winner(winnerPlayer);
 		System.out.println("exiting");
 	}
 }

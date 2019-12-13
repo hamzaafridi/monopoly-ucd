@@ -2,6 +2,7 @@ package utils;
 
 import java.util.List;
 
+import board.Property;
 import player.Player;
 import player.Token;
 /**
@@ -126,6 +127,30 @@ public class Screen {
 	 */
 	public void drawCommunityMessage() {
 		System.out.println("Press any key to draw community card");
+	}
+	
+	/**
+	 * message for winner
+	 * @param winnerPlayer object for name
+	 */
+	public void winner(Player winnerPlayer) {
+		System.out.printf("\n\nCongratulaitons \"%s\" won the game!\n\n",winnerPlayer.getName());
+	}
+
+	/**
+	 * message for bankCrupt
+	 */
+	public void playerBanckrupt(Player player) {
+		System.out.printf("\nSorry \"%s\" is backrupt and has retired from game!\n\n",player.getName());
+	}
+
+	public void payRent(Player player, Player owner, int rent) {
+		System.out.printf("\n\"%s\" paid rent of $%d to \"%s\"\n",player.getName(),rent,owner.getName());
+	}
+
+	public void purchased(Player player, Property currentTile) {
+		System.out.printf("\n\"%s\" purchased \"%s $%d to \"%s\"\n",player.getName(),rent,owner.getName());
+		
 	}
 
 }
