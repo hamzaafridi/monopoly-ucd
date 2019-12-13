@@ -143,13 +143,43 @@ public class Screen {
 	public void playerBanckrupt(Player player) {
 		System.out.printf("\nSorry \"%s\" is backrupt and has retired from game!\n\n",player.getName());
 	}
-
+	
+	
+	/**
+	 * rent paid message
+	 * @param player who is paying the rent
+	 * @param owner who will receive the rent
+	 * @param amount that has to be paid
+	 */
 	public void payRent(Player player, Player owner, int rent) {
 		System.out.printf("\n\"%s\" paid rent of $%d to \"%s\"\n",player.getName(),rent,owner.getName());
 	}
-
+	
+	/**
+	 * property purchase message
+	 * @param player making the purchase 
+	 * @param currentTile the tile that is being purchased
+	 */
 	public void purchased(Player player, Property currentTile) {
-		System.out.printf("\n\"%s\" purchased \"%s $%d to \"%s\"\n",player.getName(),rent,owner.getName());
+		System.out.printf("\n\"%s\" purchased \"%s\" for  $%d\n",player.getName(),currentTile.name(),currentTile.cost());
+	}
+
+	public void playerStatus2(Player player) {
+		System.out.println("\n***************************");
+		System.out.printf("%s status after turn!\n",player.getName());
+		System.out.printf("token: %s\n", player.getToken());
+		System.out.printf("current position: %d\n",player.getBoardPosition());
+		System.out.printf("amount: %d\n",player.getAmount());
+		System.out.printf("inJail: %b\n",player.getInJail());
+		System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+		
+	}
+
+	/**
+	 * auction start message
+	 */
+	public void autionStart() {
+		System.out.println("There will now be auction:");
 		
 	}
 

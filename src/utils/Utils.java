@@ -91,4 +91,18 @@ public class Utils {
 			return val1-val2;
 		}
 	}
+	
+	/**
+	 * compute or function of an array
+	 * @param auction boolean list
+	 * @return boolean or of the entire list
+	 */
+	public static boolean or(boolean[] auction) {
+		boolean decision = auction[0];
+		for (int i=1;i<auction.length;i++)
+		{
+			decision = decision | auction[i];
+		}
+		return decision;
+	}
 }

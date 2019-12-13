@@ -3,7 +3,6 @@ package app;
 import board.Board;
 import board.Card;
 import board.CardType;
-import board.CardWrapper;
 import board.Dice;
 import board.Property;
 import board.Rules;
@@ -12,7 +11,6 @@ import player.Token;
 import utils.Screen;
 import utils.Utils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -103,6 +101,10 @@ public class Run {
 					disp.diceRuleGotoJail();
 					player.get(i).setInJail(true);
 				}
+				else if(player.get(i).getInJail())
+				{
+					
+				}
 				else
 				{
 					player.get(i).moveBoardPosition(rollTotal);
@@ -141,7 +143,8 @@ public class Run {
 						if(currentTile.isOwned())
 						{
 							player.get(i).deductAmount(currentTile.rent());
-							currentTile.owner().addAmount(currentTile.rent());
+							int j = player.indexOf(currentTile.owner());
+							player.get(j).addAmount(currentTile.rent());
 							disp.payRent(player.get(i),currentTile.owner(),currentTile.rent());
 						}
 						else
@@ -151,10 +154,11 @@ public class Run {
 							{
 								player.get(i).deductAmount(currentTile.cost());
 								currentTile.isPurchased(player.get(i));
+								disp.purchased(player.get(i),currentTile);
 							}
 							else {
-								// TODO auction
-								System.out.println("There will be auction");	
+								disp.autionStart();
+								player = Rules.auction(player,currentTile,input);
 							}
 						}
 				}
@@ -163,14 +167,13 @@ public class Run {
 					disp.playerBanckrupt(player.get(i));
 					bankruptNum++;
 				}
-				disp.playerStatus(player.get(i));
+				disp.playerStatus2(player.get(i));
 				
 			}
-		if(bankruptNum<=bankruptLimit)
+		if(bankruptNum>=bankruptLimit)
 			gameplay =	false;
 		}
-		//TODO compute winner
-		Player winnerPlayer=player.get(1);
+		Player winnerPlayer=Rules.winner(player);
 		disp.winner(winnerPlayer);
 		System.out.println("exiting");
 	}
