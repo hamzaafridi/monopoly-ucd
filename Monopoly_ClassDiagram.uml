@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_e3zv4BjJEeq69ujNw_lhmA" name="Monopoly_ClassDiagram">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_fAvpcBjJEeq69ujNw_lhmA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_8p00EB3gEeq1I_7UgD7Vuw" name="Run">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__s0D8B3gEeq1I_7UgD7Vuw" name="numUsers" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HI5lkB3iEeq1I_7UgD7Vuw" name="tokenSelect" type="__wjfAB3hEeq1I_7UgD7Vuw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YuREUB3jEeq1I_7UgD7Vuw" name="Main"/>
+    <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_oEddIB3hEeq1I_7UgD7Vuw"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_r8JgYB3hEeq1I_7UgD7Vuw"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="__wjfAB3hEeq1I_7UgD7Vuw" name="int"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_M9GY0B3iEeq1I_7UgD7Vuw" name="Screen">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eRT2IB3jEeq1I_7UgD7Vuw" name="Screen"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_f5hKEB3jEeq1I_7UgD7Vuw" name="enterToContinue" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_kUQQAB3jEeq1I_7UgD7Vuw" name="nameMessage" visibility="private" concurrency="concurrent">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wsxE0B3jEeq1I_7UgD7Vuw" name="n" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lKetYB3jEeq1I_7UgD7Vuw" name="numberOfPlayersMsg" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lfAL4B3jEeq1I_7UgD7Vuw" name="selectToken" visibility="private">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_mPEhcB3kEeq1I_7UgD7Vuw" name="token" type="_l_WqcB3kEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_l4dNsB3jEeq1I_7UgD7Vuw" name="welcomeScreen" visibility="private"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_LFOmUB3kEeq1I_7UgD7Vuw" name="int"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_l_WqcB3kEeq1I_7UgD7Vuw" name="List&lt;Token>"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0Q5dcB3kEeq1I_7UgD7Vuw" name="Board">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_6cW6IB3kEeq1I_7UgD7Vuw" name="board " type="_L6rLIB3lEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_6499oB3kEeq1I_7UgD7Vuw" name="payAsPercentage" type="_XIz3gB3lEeq1I_7UgD7Vuw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7jzqYB3kEeq1I_7UgD7Vuw" name="atlantic">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_x8J-MB3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5iyYYB3lEeq1I_7UgD7Vuw" name="baltic">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5iyYYR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5pvU8B3lEeq1I_7UgD7Vuw" name="boardwalk">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5pvU8R3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5tvrMB3lEeq1I_7UgD7Vuw" name="BOrailroad">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5tvrMR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5vpIoB3lEeq1I_7UgD7Vuw" name="carolina">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5vpIoR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5xYOAB3lEeq1I_7UgD7Vuw" name="chance">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5xYOAR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5zOoIB3lEeq1I_7UgD7Vuw" name="charles">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5zOoIR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_50_isB3lEeq1I_7UgD7Vuw" name="community">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_50_isR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_52v2MB3lEeq1I_7UgD7Vuw" name="connecticut">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_52v2MR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_54gwwB3lEeq1I_7UgD7Vuw" name="electric">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_54gwwR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_56JIcB3lEeq1I_7UgD7Vuw" name="getBoardTitle">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_56JIcR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_57-7gB3lEeq1I_7UgD7Vuw" name="go">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_57-7gR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_59xEMB3lEeq1I_7UgD7Vuw" name="goToJail">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_59xEMR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5_hXsB3lEeq1I_7UgD7Vuw" name="illinois">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5_hXsR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6BKWcB3lEeq1I_7UgD7Vuw" name="income">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6BKWcR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6DiVAB3lEeq1I_7UgD7Vuw" name="indiana">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6DiVAR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6D_A8B3lEeq1I_7UgD7Vuw" name="jail">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6D_A8R3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6EZQoB3lEeq1I_7UgD7Vuw" name="james">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6EZQoR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6E0ucB3lEeq1I_7UgD7Vuw" name="kentucky">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6E0ucR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6FPlMB3lEeq1I_7UgD7Vuw" name="luxuryTax">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6FPlMR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6FrDAB3lEeq1I_7UgD7Vuw" name="makeAllBoardTitle">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6FrDAR3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6GHH4B3lEeq1I_7UgD7Vuw" name="marvin">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6GHH4R3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6IP14B3lEeq1I_7UgD7Vuw" name="mediterranean">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6IP14R3lEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_W_YZQB3mEeq1I_7UgD7Vuw" name="getBoard"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wkMQQB3mEeq1I_7UgD7Vuw" name="newYork">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wkMQQR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wqmaQB3mEeq1I_7UgD7Vuw" name="oriental">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wqmaQR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ws4SMB3mEeq1I_7UgD7Vuw" name="pacific">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ws4SMR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wurpAB3mEeq1I_7UgD7Vuw" name="park">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wurpAR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wwoJwB3mEeq1I_7UgD7Vuw" name="parking">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wwoJwR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wydVwB3mEeq1I_7UgD7Vuw" name="pennsylvania">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wydVwR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w0QFgB3mEeq1I_7UgD7Vuw" name="pennsylvaniaRailroad">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w0QFgR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w2AZAB3mEeq1I_7UgD7Vuw" name="readingRailroad">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w2AZAR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w34BQB3mEeq1I_7UgD7Vuw" name="shortLineRailroad">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w34BQR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w5lRcB3mEeq1I_7UgD7Vuw" name="states">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w5lRcR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w7ShoB3mEeq1I_7UgD7Vuw" name="tennessee">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w7ShoR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w9BnAB3mEeq1I_7UgD7Vuw" name="ventor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9BnAR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_w-wFUB3mEeq1I_7UgD7Vuw" name="vermont">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w-wFUR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xAd8kB3mEeq1I_7UgD7Vuw" name="virginia">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xAd8kR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xCNpAB3mEeq1I_7UgD7Vuw" name="visiting">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xCNpAR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xD5EAB3mEeq1I_7UgD7Vuw" name="water">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xD5EAR3mEeq1I_7UgD7Vuw" name="boardPosition" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_2CP0YB3mEeq1I_7UgD7Vuw" name="makeRailroadGroup"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5v38sB3mEeq1I_7UgD7Vuw" name="makeSameColorGroups"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7CGZkB3mEeq1I_7UgD7Vuw" name="makeUtilityCompanyGroup"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_L6rLIB3lEeq1I_7UgD7Vuw" name="Property"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_XIz3gB3lEeq1I_7UgD7Vuw" name="boolean"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_xApYMB3lEeq1I_7UgD7Vuw" name="int"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_VuJ9wB3tEeq1I_7UgD7Vuw" name="String"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CkILIB3oEeq1I_7UgD7Vuw" name="Card">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_H1NDMB3oEeq1I_7UgD7Vuw" name="action" type="_SgbPwB3oEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WqVEYB3oEeq1I_7UgD7Vuw" name="type" type="_j_H7QB3oEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nWkYMB3oEeq1I_7UgD7Vuw" name="invalidKey" type="_XIz3gB3lEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vlrusB3oEeq1I_7UgD7Vuw" name="isPay" visibility="protected" type="_XIz3gB3lEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_02pSAB3oEeq1I_7UgD7Vuw" name="keyChanceMax" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1AUycB3oEeq1I_7UgD7Vuw" name="keyChanceMin" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1Gpc4B3oEeq1I_7UgD7Vuw" name="keyCommunityMax" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1PCj4B3oEeq1I_7UgD7Vuw" name="keyCommunityMin" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HBkxYB3pEeq1I_7UgD7Vuw" name="nearestRail" type="_XIz3gB3lEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J_vLoB3pEeq1I_7UgD7Vuw" name="outJailFree" type="_XIz3gB3lEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Lmnp4B3pEeq1I_7UgD7Vuw" name="payFor1hotel" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LrydwB3pEeq1I_7UgD7Vuw" name="payFor1house" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LwFu8B3pEeq1I_7UgD7Vuw" name="payForEachPlayer" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MWAfcB3pEeq1I_7UgD7Vuw" name="travel" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MbA7QB3pEeq1I_7UgD7Vuw" name="travelTo" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cXWcIB3pEeq1I_7UgD7Vuw" name="unknowValue" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cb7aIB3pEeq1I_7UgD7Vuw" name="value" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_mm_f8B3pEeq1I_7UgD7Vuw" name="card">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_uBCPoB3pEeq1I_7UgD7Vuw" name="type" type="_j_H7QB3oEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xByD0B3pEeq1I_7UgD7Vuw" name="key" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5TKEIB3pEeq1I_7UgD7Vuw" name="action"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_CeJ0EB3qEeq1I_7UgD7Vuw" name="bankError" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EdAGYB3qEeq1I_7UgD7Vuw" name="beautyContest" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EiXukB3qEeq1I_7UgD7Vuw" name="birthday" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Eka9AB3qEeq1I_7UgD7Vuw" name="chairman" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EmOT0B3qEeq1I_7UgD7Vuw" name="consultancyFee" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EoDf0B3qEeq1I_7UgD7Vuw" name="dividedend" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ep4r0B3qEeq1I_7UgD7Vuw" name="doctorFee" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EsYmMB3qEeq1I_7UgD7Vuw" name="eachPlayer"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Eu0PIB3qEeq1I_7UgD7Vuw" name="hotel"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_hKY34B3qEeq1I_7UgD7Vuw" name="chance">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_j7d4YB3qEeq1I_7UgD7Vuw" name="n" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lDc0IB3qEeq1I_7UgD7Vuw" name="community">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nWXR8B3qEeq1I_7UgD7Vuw" name="n" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zYUn8B3qEeq1I_7UgD7Vuw" name="goBack" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zfLd4B3qEeq1I_7UgD7Vuw" name="goToBoardwalk" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zhl4sB3qEeq1I_7UgD7Vuw" name="goToJail" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zkD94B3qEeq1I_7UgD7Vuw" name="hholiday" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zmK2sB3qEeq1I_7UgD7Vuw" name="hospitalFee" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zoGwYB3qEeq1I_7UgD7Vuw" name="inherit" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zp3q8B3qEeq1I_7UgD7Vuw" name="jailFree" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zr0LsB3qEeq1I_7UgD7Vuw" name="lifeInsurance" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zwi6sB3qEeq1I_7UgD7Vuw" name="loanMature" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zy1ZsB3qEeq1I_7UgD7Vuw" name="moveToCharles" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_z00WsB3qEeq1I_7UgD7Vuw" name="moveToGo" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__EsvgB3qEeq1I_7UgD7Vuw" name="house"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AdUIQB3rEeq1I_7UgD7Vuw" name="invalidkey"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Brw4YB3rEeq1I_7UgD7Vuw" name="isPay"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PAIRcB3rEeq1I_7UgD7Vuw" name="moveToIllinois" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PFddYB3rEeq1I_7UgD7Vuw" name="nearestRailroad" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PG_HYB3rEeq1I_7UgD7Vuw" name="nearestUtility" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PIotMB3rEeq1I_7UgD7Vuw" name="opera" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PKNagB3rEeq1I_7UgD7Vuw" name="poorTax" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PMnOQB3rEeq1I_7UgD7Vuw" name="readingRailroad" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PNKn4B3rEeq1I_7UgD7Vuw" name="refundTax" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PNtacB3rEeq1I_7UgD7Vuw" name="repair" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_POOX0B3rEeq1I_7UgD7Vuw" name="saleStock" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_POv8QB3rEeq1I_7UgD7Vuw" name="schoolFee" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PPQ5oB3rEeq1I_7UgD7Vuw" name="streetRepair" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PP0TQB3rEeq1I_7UgD7Vuw" name="wonCompetition" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_WuzNUB3rEeq1I_7UgD7Vuw" name="outJailFree"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_mIYmcB3rEeq1I_7UgD7Vuw" name="travel"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_m4QkMB3rEeq1I_7UgD7Vuw" name="travelRail"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_okPk4B3rEeq1I_7UgD7Vuw" name="travelTo"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qbFKsB3rEeq1I_7UgD7Vuw" name="type"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_rld6MB3rEeq1I_7UgD7Vuw" name="value"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_SgbPwB3oEeq1I_7UgD7Vuw" name="CardAction"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_j_H7QB3oEeq1I_7UgD7Vuw" name="CardType"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_5T7OQB3rEeq1I_7UgD7Vuw" name="CardAction">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9JmfUB3rEeq1I_7UgD7Vuw" name="BANK_MONEY"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-cRBEB3rEeq1I_7UgD7Vuw" name="GET_OUT_JAIL"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__jYaIB3rEeq1I_7UgD7Vuw" name="MOVE"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_AG4IwB3sEeq1I_7UgD7Vuw" name="MOVE_NEAREST"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_B67gUB3sEeq1I_7UgD7Vuw" name="MOVE_TO"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_EKGtoB3sEeq1I_7UgD7Vuw" name="PLAYER_MONEY"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_FU9-QB3sEeq1I_7UgD7Vuw" name="REPAIR"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_H6oY8B3sEeq1I_7UgD7Vuw" name="CardType">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KcSdYB3sEeq1I_7UgD7Vuw" name="CHANCE"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_LMUMIB3sEeq1I_7UgD7Vuw" name="COMMUNITY"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TggP4B3sEeq1I_7UgD7Vuw" name="Property">
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_ovIJwB3sEeq1I_7UgD7Vuw" name="Player"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YYZL4B3sEeq1I_7UgD7Vuw" name="cost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_hJw64B3sEeq1I_7UgD7Vuw" name="isOwnable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_iZ2CsB3sEeq1I_7UgD7Vuw" name="isOwned"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ji1EAB3sEeq1I_7UgD7Vuw" name="isPurchased">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9FGMB3sEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qFgG0B3sEeq1I_7UgD7Vuw" name="mortgage"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_rHIi8B3sEeq1I_7UgD7Vuw" name="name"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_rup18B3sEeq1I_7UgD7Vuw" name="owner"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_spu-IB3sEeq1I_7UgD7Vuw" name="position"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_tTRDUB3sEeq1I_7UgD7Vuw" name="rent"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xLHeoB3sEeq1I_7UgD7Vuw" name="CardWrapper">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_5v14wB3sEeq1I_7UgD7Vuw" name="dice" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_72fcMB3sEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_78c6QB3sEeq1I_7UgD7Vuw" name="roleValue" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__pga0B3sEeq1I_7UgD7Vuw" name="type" type="_j_H7QB3oEeq1I_7UgD7Vuw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ECcJ8B3tEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_hvEx8B3tEeq1I_7UgD7Vuw" name="CardWrapper" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_tQcjYB3tEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_unl8gB3tEeq1I_7UgD7Vuw" name="pos" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_yQjnQB3tEeq1I_7UgD7Vuw" name="type" type="_H6oY8B3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aWQAB3tEeq1I_7UgD7Vuw" name="isOwned"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aXeIB3tEeq1I_7UgD7Vuw" name="isPurchased">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4aXeIR3tEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aYFMB3tEeq1I_7UgD7Vuw" name="rent"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aYsQB3tEeq1I_7UgD7Vuw" name="owner"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aZ6YB3tEeq1I_7UgD7Vuw" name="name"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4abIgB3tEeq1I_7UgD7Vuw" name="mortgage"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4abvkB3tEeq1I_7UgD7Vuw" name="position"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4ac9sB3tEeq1I_7UgD7Vuw" name="cost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4aeL0B3tEeq1I_7UgD7Vuw" name="isOwnable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6MuMkB3tEeq1I_7UgD7Vuw" name="Draw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_8YIUMB3tEeq1I_7UgD7Vuw" name="type"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DQ9NMB3uEeq1I_7UgD7Vuw" name="DeedsCard">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_FiqxIB3uEeq1I_7UgD7Vuw" name="buildings" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_H3QC4B3uEeq1I_7UgD7Vuw" name="fourHouse" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IHuH0B3uEeq1I_7UgD7Vuw" name="hotel" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_INtbEB3uEeq1I_7UgD7Vuw" name="houses" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IP7BkB3uEeq1I_7UgD7Vuw" name="isOwned" type="_XIz3gB3lEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IRw0oB3uEeq1I_7UgD7Vuw" name="isOwnSameColor" type="_XIz3gB3lEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ITlZkB3uEeq1I_7UgD7Vuw" name="mortgage" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IVVtEB3uEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IXGAkB3uEeq1I_7UgD7Vuw" name="oneHouse" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IYsjEB3uEeq1I_7UgD7Vuw" name="owner" type="_ovIJwB3sEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IaX-EB3uEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Ib_HoB3uEeq1I_7UgD7Vuw" name="rent" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Id4lEB3uEeq1I_7UgD7Vuw" name="threeHouse" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IfeggB3uEeq1I_7UgD7Vuw" name="twoHouse" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IhR3UB3uEeq1I_7UgD7Vuw" name="value" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yGjhQB3uEeq1I_7UgD7Vuw" name="DeedsCard" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13omMB3uEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_8PzCIB3uEeq1I_7UgD7Vuw" name="pos" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-CvmcB3uEeq1I_7UgD7Vuw" name="rent" type="__wjfAB3hEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__3F48B3uEeq1I_7UgD7Vuw" name="oneHouse" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJ5tgB3vEeq1I_7UgD7Vuw" name="twoHouse" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ehr_0B3vEeq1I_7UgD7Vuw" name="threeHouse" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GufOkB3vEeq1I_7UgD7Vuw" name="fourHouse" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_H3AV0B3vEeq1I_7UgD7Vuw" name="hotel" type="__wjfAB3hEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Lec9oB3vEeq1I_7UgD7Vuw" name="value" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_M1vgsB3vEeq1I_7UgD7Vuw" name="houses" type="_LFOmUB3kEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OIdFwB3vEeq1I_7UgD7Vuw" name="mortgage" type="_xApYMB3lEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty4R8B3vEeq1I_7UgD7Vuw" name="isPurchased">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ty4R8R3vEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty5gEB3vEeq1I_7UgD7Vuw" name="isOwned"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty6uMB3vEeq1I_7UgD7Vuw" name="position"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty7VQB3vEeq1I_7UgD7Vuw" name="rent"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty9xgB3vEeq1I_7UgD7Vuw" name="name"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ty-_oB3vEeq1I_7UgD7Vuw" name="mortgage"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_TzANwB3vEeq1I_7UgD7Vuw" name="owner"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_TzA00B3vEeq1I_7UgD7Vuw" name="isOwnable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_TzCC8B3vEeq1I_7UgD7Vuw" name="cost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_UnflwB3vEeq1I_7UgD7Vuw" name="houseCost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_WJztEB3vEeq1I_7UgD7Vuw" name="isOwnSameColor"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Y6cosB3vEeq1I_7UgD7Vuw" name="numHouse"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cO-7kB3vEeq1I_7UgD7Vuw" name="Dice">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_iWaz4B3vEeq1I_7UgD7Vuw" name="min" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ibJi4B3vEeq1I_7UgD7Vuw" name="max" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lkSeEB3vEeq1I_7UgD7Vuw" name="Dice"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_mjmmAB3vEeq1I_7UgD7Vuw" name="roll"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_p9yN4B3vEeq1I_7UgD7Vuw" name="Jail">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tOiM8B3vEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tm9UAB3vEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-NfQB3vEeq1I_7UgD7Vuw" name="isOwnable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-NfQR3vEeq1I_7UgD7Vuw" name="cost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-NfQh3vEeq1I_7UgD7Vuw" name="isOwned"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-NfQx3vEeq1I_7UgD7Vuw" name="owner"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-NfRB3vEeq1I_7UgD7Vuw" name="isPurchased">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_v-NfRR3vEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-OGUB3vEeq1I_7UgD7Vuw" name="rent"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-OGUR3vEeq1I_7UgD7Vuw" name="position"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-OGUh3vEeq1I_7UgD7Vuw" name="mortgage"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_v-OGUx3vEeq1I_7UgD7Vuw" name="name"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4a-3QB3vEeq1I_7UgD7Vuw" name="updatePlayer">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6zWc0B3vEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_8F5p0B3vEeq1I_7UgD7Vuw" name="Jail">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9sraYB3vEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-3PwEB3vEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FgiYQB3wEeq1I_7UgD7Vuw" name="Class14">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IghXcB3wEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IghXcR3wEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw" isUnique="false"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb77QB3wEeq1I_7UgD7Vuw" name="name"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb77QR3wEeq1I_7UgD7Vuw" name="isOwnable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb77Qh3wEeq1I_7UgD7Vuw" name="cost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iUB3wEeq1I_7UgD7Vuw" name="position"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iUR3wEeq1I_7UgD7Vuw" name="rent"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iUh3wEeq1I_7UgD7Vuw" name="mortgage"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iUx3wEeq1I_7UgD7Vuw" name="isPurchased">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Kb8iVB3wEeq1I_7UgD7Vuw" name="Player" type="_ovIJwB3sEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iVR3wEeq1I_7UgD7Vuw" name="isOwned"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Kb8iVh3wEeq1I_7UgD7Vuw" name="owner"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_op-AIB3wEeq1I_7UgD7Vuw" name="OtherCard">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_op-AIR3wEeq1I_7UgD7Vuw" name="name" type="_VuJ9wB3tEeq1I_7UgD7Vuw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_op-AIh3wEeq1I_7UgD7Vuw" name="pos" type="__wjfAB3hEeq1I_7UgD7Vuw"/>
+    </ownedOperation>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_R67PoB3gEeqKAZXbHFufBw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_R68dwB3gEeqKAZXbHFufBw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>
