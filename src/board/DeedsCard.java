@@ -24,6 +24,8 @@ public class DeedsCard implements Property{
 		private boolean isOwnSameColor; //does one player own all properties in set?
 		private boolean isOwned;  //is property owned?
 		private Player owner;
+		private DeedsCard[] otherDeedsCard = new DeedsCard[2];
+		private int colorGroups;
 
 		/**
 		 *  This is constructor
@@ -105,7 +107,7 @@ public class DeedsCard implements Property{
 			this.isOwned = true;
 			this.owner = player;
 
-			//TODO update player class here
+			updateOwner();
 		}
 
 		/**
@@ -113,9 +115,13 @@ public class DeedsCard implements Property{
 		 * @return money that another people have to pay if got into this tile.
 		 */
 		public int rent() {
-			if (!this.isOwned)
+			
+			updateOwner();
+			
+			if (!isOwned)
 				return 0;
-			switch (this.buildings) {
+			
+			switch (buildings) {
 				case 0:
 					if (this.isOwnSameColor) return 2 * rent;
 					return this.rent;
@@ -132,6 +138,7 @@ public class DeedsCard implements Property{
 				default:
 					return 0;
 			}
+			
 		}
 		
 		/**
@@ -178,4 +185,55 @@ public class DeedsCard implements Property{
 		public boolean isOwnSameColor() {
 			return this.isOwnSameColor;
 		}
+		
+		/**
+		 * use for know if player own same color group
+		 * @return
+		 */
+		public boolean updateOwner() {
+			int numOwned = 1;
+			for (DeedsCard d : otherDeedsCard){
+				try {
+					if (d.isOwned() && d.owner().equals(owner))
+						 numOwned++;
+				   	} catch (Exception e) {
+					  
+				   }
+			}
+			if (numOwned == colorGroups)
+				return isOwnSameColor = true;
+			else 
+				return isOwnSameColor = false;
+		}
+		
+		/**
+		 * Use to set others deed cards have same color
+		 * @param a
+		 * @param b
+		 */
+		public void otherDeedsCard(DeedsCard a, DeedsCard b){
+			try {
+				if ((b == null))
+					colorGroups = 2;
+			   	} catch (Exception e) {
+			   }
+			otherDeedsCard[0] = a;
+			otherDeedsCard[1] = b;
+			if (b == null)
+				colorGroups = 2;
+			else
+				colorGroups = 3;
+		}
+		
+		/**
+		 * Use for build a house or build a hotel
+		 * Every time use this function, buildings = buildings+1
+		 */
+		public void build() {
+			if (buildings >= 0 && buildings < 5)
+			buildings ++;
+			else
+				throw new IllegalArgumentException("Invalid building!");	
+		}
+		
 }
