@@ -175,9 +175,6 @@ public class DeedsCard implements Property{
 			return this.houses;
 		}
 		
-		//TODO check if there is a player own group of color
-		// There are 8 groups of color.
-		
 		/**
 		 * 
 		 * @return true if there is a player own group of color

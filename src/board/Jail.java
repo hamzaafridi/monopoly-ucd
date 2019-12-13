@@ -94,8 +94,11 @@ public class Jail implements Property{
 		return null;
 	}
 	
-	//other method
+	/**
+	 * Just use for update in Player class
+	 * @param player
+	 */
 	public void updatePlayer(Player player) {
-		//TODO update the flag GO TO JAIL in Player class
+		// update the flag GO TO JAIL in Player class
 	}
 }
