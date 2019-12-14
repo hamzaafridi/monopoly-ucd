@@ -2,7 +2,9 @@ package board;
 
 import java.util.List;
 
+import player.Player;
 import player.Token;
+import utils.Utils;
 
 /**
  * all board rules are defined here
@@ -72,5 +74,64 @@ public class Rules {
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	 * winner rule, returns winner as the one with the most number of cash in bank.
+	 * @param player list of all players
+	 * @return player winner
+	 */
+	public static Player winner(List<Player> player) {
+		Player winner = player.get(0);
+		for (int i=0;i<player.size();i++)
+		{
+			if(winner.getAmount()<player.get(i).getAmount())
+				winner = player.get(i);
+		}
+		return winner;
+	}
+	/**
+	 * auction method for testing out everything
+	 * @param player list of all the players playing
+	 * @param currentTile is the tile that is being auctioned
+	 * @param input is the Utility  input functionality
+	 * @return updated list of players
+	 */
+	public static List<Player> auction(List<Player> player, Property currentTile,Utils input) {
+		
+		boolean[] auction = new boolean[player.size()];
+		int currentBid = 0;
+		int inputBid = 0;
+		int highestBidder = 0;
+		System.out.println("ooooooooooooooooooooooooooooooo");
+		System.out.printf("\nBidding for %s begins at 0\n", currentTile.name());
+		while(Utils.or(auction))
+		{
+			for (int i=0;i<player.size();i++)
+			{
+				if(auction[i])
+				{
+					System.out.printf("\nCurrent Bid is &%d\n", currentBid);			
+					System.out.printf("%s do you wanted you want to place bid?",player.get(i).getName());
+					if(input.ynInput())
+					{
+						do {
+						System.out.println("enter your bid amount:");
+						inputBid = input.inInteger();
+						}while(inputBid<currentBid);
+						highestBidder = i;
+						currentBid = inputBid;
+						
+					}
+					else {
+						auction[i] = false;
+					}
+				}
+			}
+		}
+		player.get(highestBidder).deductAmount(currentBid);
+		currentTile.isPurchased(player.get(highestBidder));
+		System.out.printf("%s purchased %s for $%d through auction.",player.get(highestBidder).getName(),currentTile.name(),currentBid);
+		return player;
 	}
 }

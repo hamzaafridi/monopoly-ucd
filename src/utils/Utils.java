@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utils {
@@ -52,7 +53,6 @@ public class Utils {
 	 */
 	public boolean ynInput() {
 		String decision = input.nextLine();
-		System.out.println(decision);
 		while(!(decision.equals("y") || decision.equals("n") || decision.equals("Y\n") || decision.equals("N\n")))  
 		{
 			System.out.println("Invalid input please try again (y/n):\t");
@@ -64,5 +64,45 @@ public class Utils {
 		else
 			return false;
 		
+	}
+	
+	/**
+	 * Generate random number between min max
+	 * @param min, minimum integer value
+	 * @param max, maximum integer value
+	 * @return int
+	 */
+	public static int randInt(int min, int max){
+		Random random = new Random();
+		return random.ints(min,(max+1)).findFirst().getAsInt();
+	}
+	
+	/**
+	 * board differeance is the distance between two positions on board
+	 * @param val1 is first position
+	 * @param val2 is the second position
+	 * @return int the distance between two position
+	 */
+	public static int diffPosition(int val1, int val2){
+		if (val1>val2){
+			return 40+val2-val1;
+		}
+		else {
+			return val1-val2;
+		}
+	}
+	
+	/**
+	 * compute or function of an array
+	 * @param auction boolean list
+	 * @return boolean or of the entire list
+	 */
+	public static boolean or(boolean[] auction) {
+		boolean decision = auction[0];
+		for (int i=1;i<auction.length;i++)
+		{
+			decision = decision | auction[i];
+		}
+		return decision;
 	}
 }

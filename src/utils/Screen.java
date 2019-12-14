@@ -2,6 +2,7 @@ package utils;
 
 import java.util.List;
 
+import board.Property;
 import player.Player;
 import player.Token;
 /**
@@ -98,6 +99,13 @@ public class Screen {
 	public void diceRuleGotoJail() {
 		System.out.println("you got doubles three times! You are now in jail!");
 	}
+	
+	/**
+	 * sent to jail message
+	 */
+	public void sentToJailMessage() {
+		System.out.println("you have been sent to jail!");
+	}
 
 	/**
 	 * Want to buy property message
@@ -106,6 +114,73 @@ public class Screen {
 	 */
 	public void purchaseQuestion(int cost, String name) {
 		System.out.printf("Do you want to buy \"%s\" for $%d? (y/n) :",name,cost);
+	}
+	/**
+	 * message to draw chance card
+	 */
+	public void drawChanceMessage() {
+		System.out.println("Press any key to draw chance card");
+	}
+
+	/**
+	 * message to draw community card
+	 */
+	public void drawCommunityMessage() {
+		System.out.println("Press any key to draw community card");
+	}
+	
+	/**
+	 * message for winner
+	 * @param winnerPlayer object for name
+	 */
+	public void winner(Player winnerPlayer) {
+		System.out.printf("\n\nCongratulaitons \"%s\" won the game!\n\n",winnerPlayer.getName());
+	}
+
+	/**
+	 * message for bankCrupt
+	 */
+	public void playerBanckrupt(Player player) {
+		System.out.printf("\nSorry \"%s\" is backrupt and has retired from game!\n\n",player.getName());
+	}
+	
+	
+	/**
+	 * rent paid message
+	 * @param player who is paying the rent
+	 * @param owner who will receive the rent
+	 * @param amount that has to be paid
+	 */
+	public void payRent(Player player, Player owner, int rent) {
+		System.out.printf("\n\"%s\" paid rent of $%d to \"%s\"\n",player.getName(),rent,owner.getName());
+	}
+	
+	/**
+	 * property purchase message
+	 * @param player making the purchase 
+	 * @param currentTile the tile that is being purchased
+	 */
+	public void purchased(Player player, Property currentTile) {
+		System.out.printf("\n\"%s\" purchased \"%s\" for  $%d\n",player.getName(),currentTile.name(),currentTile.cost());
+	}
+
+	public void playerStatus2(Player player) {
+		System.out.println("\n***************************");
+		System.out.printf("%s status after turn!\n",player.getName());
+		System.out.printf("token: %s\n", player.getToken());
+		System.out.printf("current position: %d\n",player.getBoardPosition());
+		System.out.printf("amount: %d\n",player.getAmount());
+		System.out.printf("inJail: %b\n",player.getInJail());
+		System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+		
+	}
+
+	/**
+	 * auction start message
+	 */
+	public void autionStart() {
+		System.out.println("There will now be auction:");
+		
 	}
 
 }

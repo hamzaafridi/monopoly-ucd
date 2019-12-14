@@ -1,5 +1,8 @@
 package board;
 
+import player.Player;
+import utils.Utils;
+
 /**
  * Class describing all chance and community cards
  * @author BaoAnh
@@ -50,8 +53,40 @@ public class Card {
 				//throw new IllegalArgumentException("Invalid Key of Community");
 			}
 			community(key);
+			this.type=type;
 		}
 	}
+	
+	/**
+	 * To generate create card
+	 * @param card Type
+	 */
+		public Card(CardType type) {
+			this.travel = unknownValue; 
+			this.travelTo = unknownValue;
+			if (!type.equals(CardType.CHANCE) && !type.equals(CardType.COMMUNITY))
+				throw new IllegalArgumentException("Invalid CardType");
+			this.type=type;
+			}
+		
+	/**
+	 * Draw card function generate random value and draw a card
+	 */
+		public void draw()
+		{
+			int key = 0;
+			
+			if(this.type.equals(CardType.COMMUNITY))
+			{
+				key = Utils.randInt(this.keyCommunityMin,this.keyCommunityMax);
+				community(key);
+			}
+			else if(this.type.equals(CardType.CHANCE))
+			{
+				key = Utils.randInt(this.keyChanceMin,this.keyChanceMax);
+				chance(key);
+			}
+		}
 	
 	/**
 	 * This code for 16 Chances
@@ -61,51 +96,67 @@ public class Card {
 		type = CardType.CHANCE;
 		switch (key) {
 			case 0:
+				System.out.println("CHANCE: move to go!");
 				moveToGo();
 				break;
 			case 1:
+				System.out.println("CHANCE: move to Illinois!");
 				moveToIllinois();
 				break;
 			case 2:
+				System.out.println("CHANCE: move to Charles!");
 				moveToCharles();
 				break;
 			case 3:
+				System.out.println("CHANCE: move to nearest Utility!");
 				nearestUtility();
 				break;
 			case 4:
+				System.out.println("CHANCE: move to nearest Rail Road!");
 				nearestRailroad();
 				break;
 			case 5:
+				System.out.println("CHANCE: Bank pays you dividend of $50!");
 				dividend();
 				break;
 			case 6:
+				System.out.println("CHANCE: Get out of Jail Free. This card may be kept until needed, or traded/sold if sold, take $50.!");
 				jailFree();
 				break;
 			case 7:
+				System.out.println("CHANCE:Go Back Three Spaces.");
 				goBack();
 				break;
 			case 8:
+				System.out.println("CHANCE: Go to jail.");
 				goToJail();
 				break;
 			case 9:
+				System.out.println("CHANCE: Make general repairs on all your property: For each house pay $25, For each hotel pay $100.");
 				repair();
 				break;
 			case 10:
+				System.out.println("CHANCE: Pay poor tax of $15");
 				poorTax();
 				break;
 			case 11:
+				System.out.println("CHANCE: Take a trip to Reading Railroad.");
 				readingRailroad();
 				break;
 			case 12:
+				System.out.println("CHANCE: Take a walk on the Boardwalk. Advance token to Boardwalk.");
 				goToBoardwalk();
 				break;
 			case 13:
+				System.out.println("CHANCE: You have been elected Chairman of the Board. Pay each player $50.");
 				chairman();
 				break;
 			case 14:
+				System.out.println("CHANCE: Your building and loan matures. Receive $150.");
 				loanMature();
 				break;
 			case 15:
+				System.out.println("CHANCE:You have won a crossword competition. Collect $100.");
 				wonCompetition();
 				break;
 			default:
@@ -118,7 +169,7 @@ public class Card {
 	 */
 	private void moveToGo() { 
 		action = CardAction.MOVE_TO;
-		travelTo = 0;
+		travelTo = 1;
 		isPaid = false;
 	}
 	
@@ -127,7 +178,7 @@ public class Card {
 	 */
 	private void moveToIllinois() {
 		action = CardAction.MOVE_TO;
-		travelTo = 24;
+		travelTo = 25;
 		isPaid = false;
 	}
 	
@@ -136,7 +187,7 @@ public class Card {
 	 */
 	private void moveToCharles() {
 		action = CardAction.MOVE_TO;
-		travelTo = 11;
+		travelTo = 12;
 		isPaid = false;
 	}
 	
@@ -194,7 +245,7 @@ public class Card {
 	 */
 	private void goToJail() {
 		action = CardAction.MOVE_TO;
-		travelTo = 40;
+		travelTo = 11;
 	}
 	
 	/**
@@ -203,8 +254,8 @@ public class Card {
 	 */
 	private void repair() {
 		action = CardAction.REPAIR;
-		payFor1house = -25;
-		payFor1hotel = -100;
+		payFor1house = 25;
+		payFor1hotel = 100;
 	}
 	
 	/**
@@ -221,7 +272,7 @@ public class Card {
 	 */
 	private void readingRailroad() {
 		action = CardAction.MOVE_TO;
-		travelTo = 5;
+		travelTo = 6;
 		isPaid = false;
 	}
 	
@@ -230,7 +281,7 @@ public class Card {
 	 */
 	private void goToBoardwalk() {
 		action = CardAction.MOVE_TO;
-		travelTo = 39;
+		travelTo = 40;
 		isPaid = false;
 	}
 	
@@ -268,56 +319,74 @@ public class Card {
 	 */
 	private void community(int key) {
 		type = CardType.COMMUNITY;
+		System.out.print("COMMUNITY: ");
 		switch (key) {
 			case 0:
+				System.out.println("Move to go");
 				moveToGo();
 				break;
 			case 1:
+				System.out.println("Bank error in your favor. Collect $200.");
 				bankError();
 				break;
 			case 2:
+				System.out.println("Doctor's fees. Pay $50");
 				doctorFee();
 				break;
 			case 3:
+				System.out.println("From sale of stock you get $50.");
 				saleStock();
 				break;
 			case 4:
+				System.out.println("Get a Jail free card.");
 				jailFree();
 				break;
 			case 5:
+				System.out.println("Goto Jail");
 				goToJail();
 				break;
 			case 6:
+				System.out.println("Collect $50 from every player for opening night seats.");
 				opera();
 				break;
 			case 7:
+				System.out.println("Holiday Xmas Fund matures. Receive $100.");
 				holiday();
 				break;
 			case 8:
+				System.out.println("Income tax refund. Collect $20.");
 				refundTax();
 				break;
 			case 9:
+				System.out.println("It is your birthday. Collect $10 from every player. ");
 				birthday();
 				break;
 			case 10:
+				System.out.println("Life insurance matures – Collect $100");
 				lifeInsurance();
 				break;
 			case 11:
+				System.out.println("Hospital Fees. Pay $50. ");
 				hospitalFee();
 				break;
 			case 12:
+				System.out.println("School fees. Pay $50.");
 				schoolFee();
 				break;
 			case 13:
+				System.out.println("Receive $25 consultancy fee.");
 				consultancyFee();
 				break;
 			case 14:
+				System.out.println("Pay $40 per house and $115 per hotel you own.");
 				streetRepair();
 				break;
 			case 15:
+				System.out.println("You have won second prize in a beauty contest. Collect $10.");
 				beautyContest();
 				break;
 			case 16:
+				System.out.println("You inherit $100.");
 				inherit();
 				break;
 			default:
@@ -325,7 +394,6 @@ public class Card {
 		}
 	}
 	
-	//moveToGo() [Already done above]
 	
 	/**
 	 * Bank error in your favor. Collect $200.
@@ -427,8 +495,8 @@ public class Card {
 	 */
 	private void streetRepair() {
 		action = CardAction.REPAIR;
-		payFor1house = -40;
-		payFor1hotel = -115;
+		payFor1house = 40;
+		payFor1hotel = 115;
 	}
 	
 	/**
@@ -545,4 +613,81 @@ public class Card {
 	public CardAction action() {
 		return action;
 	}	
+	
+	/**
+	 * execute action of the on the player
+	 * @param player object in play
+	 * @return updated player
+	 * it should be BANK_MONEY,PLAYER_MONEY, MOVE, MOVE_TO, MOVE_NEAREST, REPAIR, GET_OUT_JAIL
+	 */
+	public Player execute(Player player) {
+		switch(this.action) {
+		case BANK_MONEY:
+			//Receieve Money
+			player.addAmount(this.value);
+			return player;
+	
+		case PLAYER_MONEY:break;
+		
+		case MOVE:
+			player.moveBoardPosition(this.travel);
+			return player;
+		
+		case MOVE_TO:
+			//if card is to goto jail
+			if(this.travelTo==11){
+					player.setInJail(true);
+				}
+			else {
+				player.moveBoardPosition(Utils.diffPosition(player.getBoardPosition(), this.travelTo));
+				return player;
+			};
+		
+		case MOVE_NEAREST:
+			if(this.nearestRail)
+			{
+				int[] dist = new int[4];
+				dist[0] = Utils.diffPosition(player.getBoardPosition(), 6);//rail 1
+				dist[1] = Utils.diffPosition(player.getBoardPosition(), 16);//rail 2
+				dist[2] = Utils.diffPosition(player.getBoardPosition(), 26);//rail 3
+				dist[3] = Utils.diffPosition(player.getBoardPosition(), 36);//rail 4
+				
+				//compute the smallest distance
+				int smallest = dist[0];
+				for (int i=0;i<4;i++)
+				{
+					if (smallest>dist[i])
+					{
+						smallest = dist[i];
+					}
+				}
+				
+				player.moveBoardPosition(smallest);
+			}
+			else
+			{
+				int distElectric = Utils.diffPosition(player.getBoardPosition(), 13);
+				int distWater = Utils.diffPosition(player.getBoardPosition(), 29);
+				if(distElectric>distWater)//electric position
+					player.moveBoardPosition(distWater);
+				else
+					player.moveBoardPosition(distElectric);
+			}
+			return player;
+		
+		case REPAIR:
+			//amount to paid for each house
+			int numHouses = player.getHousesNumber();
+			int numHotel = player.getHotelsNumber();
+			player.deductAmount(this.payFor1hotel*numHotel+this.payFor1house*numHouses);
+			return player;
+			
+		case GET_OUT_JAIL:
+			player.setOutOfJailCard(true);
+			return player;
+		default:break;
+		}
+		return player;
+	}
+	
 }
