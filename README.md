@@ -67,5 +67,5 @@ All classes were equally distributed. Each class has it's author mentioned on th
 - [X] Complete Folder of ECLIPSE PROJECT including external libraries
 - [X] Unit Tests 50% coverage atleast
 - [X] 1 use case diagram: UML diagram folder
-- [ ]  1 sequence diagram: UML diagram folder
-- [ ] 1 class diagram: UML diaram folder
+- [X]  1 sequence diagram: UML diagram folder
+- [X] 1 class diagram: UML diaram folder
